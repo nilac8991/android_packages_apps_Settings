@@ -21,6 +21,14 @@
     <!-- About phone screen, Device name -->
     <string name="device_name">Device name</string>
 
+    <!-- About phone screen, XOSP version -->
+    <string name="mod_version">XOSP version</string>
+    <string name="mod_version_default">Unknown</string>
+
+    <!-- About phone screen, build date -->
+    <string name="build_date">Build date</string>
+    <string name="build_date_default">2015-01-01-0000</string>
+
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_xosp">
         <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
