@@ -129,5 +129,8 @@
     <string name="equalizer_question_five_title">Who said all these?</string>
     <string name="equalizer_question_five_summary">Me, the developer (nilac)</string>    
 
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Prevent accidental wake-up</string>
+    <string name="proximity_wake_summary">Check the proximity sensor prior to waking up screen</string>
 
   </resources>
