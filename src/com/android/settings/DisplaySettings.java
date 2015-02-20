@@ -183,12 +183,15 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mFontSizePref = findPreference(KEY_FONT_SIZE);
         }
 
-        if (isAutomaticBrightnessAvailable(getResources())) {
+        if (displayPrefs != null) {
             mAutoBrightnessPreference = (SwitchPreference) findPreference(KEY_AUTO_BRIGHTNESS);
-            mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_AUTO_BRIGHTNESS);
-        }
+            if (mAutoBrightnessPreference != null) {
+                if (isAutomaticBrightnessAvailable(getResources())) {
+                    mAutoBrightnessPreference.setOnPreferenceChangeListener(this);
+                } else {
+                    displayPrefs.removePreference(mAutoBrightnessPreference);
+                }
+            }
 
         boolean enableOperatorName = this.getResources().
                 getBoolean(com.android.internal.R.bool.config_showOperatorNameInStatusBar);
@@ -200,18 +203,20 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_NETWORK_NAME_DISPLAYED);
         }
 
-        if (!NightDisplayController.isAvailable(activity)) {
-            removePreference(KEY_NIGHT_DISPLAY);
-        }
+            if (!NightDisplayController.isAvailable(activity)) {
+                removePreference(KEY_NIGHT_DISPLAY);
+            }
 
-        if (isLiftToWakeAvailable(activity)) {
+
             mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
-            mLiftToWakePreference.setOnPreferenceChangeListener(this);
-        } else {
-            removePreference(KEY_LIFT_TO_WAKE);
-        }
+            if (mLiftToWakePreference != null) {
+                if (isLiftToWakeAvailable(activity)) {
+                    mLiftToWakePreference.setOnPreferenceChangeListener(this);
+                } else {
+                    displayPrefs.removePreference(mLiftToWakePreference);
+                }
+            }
 
-        if (displayPrefs != null) {
             mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
             if (mDozePreference != null) {
                 if (isDozeAvailable(activity)) {
