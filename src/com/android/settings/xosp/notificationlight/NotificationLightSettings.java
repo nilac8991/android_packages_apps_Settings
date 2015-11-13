@@ -31,6 +31,7 @@ import android.provider.Settings;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,9 +45,8 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.cosmic.settings.utils.PackageListAdapter;
-import com.cosmic.settings.utils.PackageListAdapter.PackageItem;
-import com.cosmic.settings.preferences.SystemSettingSwitchPreference;
+import com.android.settings.xosp.utils.PackageListAdapter;
+import com.android.settings.xosp.utils.PackageListAdapter.PackageItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,8 +73,9 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
     private int mDefaultLedOff;
     private PackageManager mPackageManager;
     private PreferenceGroup mApplicationPrefList;
-    private SystemSettingSwitchPreference mEnabledPref;
-    private SystemSettingSwitchPreference mCustomEnabledPref;
+    private SwitchPreference mEnabledPref;
+    private SwitchPreference mCustomEnabledPref;
+    private SwitchPreference mScreenOnLightsPref;
     private ApplicationLightPreference mDefaultPref;
     private Menu mMenu;
     private PackageListAdapter mPackageAdapter;
@@ -109,15 +110,20 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
         mDefaultLedOff = resources.getInteger(
                 com.android.internal.R.integer.config_defaultNotificationLedOff);
 
-        mEnabledPref = (SystemSettingSwitchPreference)
+        mEnabledPref = (SwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE);
         mEnabledPref.setOnPreferenceChangeListener(this);
 
         mDefaultPref = (ApplicationLightPreference) findPreference(DEFAULT_PREF);
         mDefaultPref.setOnPreferenceChangeListener(this);
-        mCustomEnabledPref = (SystemSettingSwitchPreference)
+
+        mCustomEnabledPref = (SwitchPreference)
                 findPreference(Settings.System.NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE);
         mCustomEnabledPref.setOnPreferenceChangeListener(this);
+
+        mScreenOnLightsPref = (SwitchPreference)
+                findPreference(Settings.System.NOTIFICATION_LIGHT_SCREEN_ON);
+        mScreenOnLightsPref.setOnPreferenceChangeListener(this);
 
         mApplicationPrefList = (PreferenceGroup) findPreference("applications_list");
         mApplicationPrefList.setOrderingAsAdded(false);
@@ -332,7 +338,8 @@ public class NotificationLightSettings extends SettingsPreferenceFragment implem
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if (preference == mEnabledPref || preference == mCustomEnabledPref) {
+        if (preference == mEnabledPref || preference == mCustomEnabledPref ||
+                preference == mScreenOnLightsPref) {
             getActivity().invalidateOptionsMenu();
         } else {
             ApplicationLightPreference lightPref = (ApplicationLightPreference) preference;

@@ -46,7 +46,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.cosmic.settings.notificationlight.ColorPickerView.OnColorChangedListener;
+import com.android.settings.xosp.notificationlight.ColorPickerView.OnColorChangedListener;
 
 import java.util.ArrayList;
 import java.util.IllegalFormatException;
