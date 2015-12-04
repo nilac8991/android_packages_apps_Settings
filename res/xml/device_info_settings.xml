@@ -17,12 +17,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
 
-        <!-- XOSP Banner
-        <com.android.settings.xosp.XOSPLogo android:key="xosp_logo"
+        <!-- XOSP Banner -->
+        <PreferenceScreen android:key="xosp_logo"
             android:enabled="false"
             android:selectable="false"
-            android:layout="@layout/xosp_banner" />-->
-
+            android:layout="@layout/xosp_banner" />
+        
         <PreferenceCategory
 			android:title="@string/device_info_xosp_category">
 
