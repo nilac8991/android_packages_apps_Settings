@@ -1143,6 +1143,9 @@
         
         <activity
             android:name=".xosp.FAQ" />
+                
+        <activity
+            android:name=".xosp.Personalization" />
         
         <!---Ended..........-->
         

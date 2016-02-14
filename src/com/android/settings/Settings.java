@@ -114,6 +114,7 @@ public class Settings extends SettingsActivity {
     public static class XOSPSettingsActivity extends SettingsActivity { /* empty */ }
     public static class About extends SettingsActivity { /* empty */ }
     public static class FAQ extends SettingsActivity { /* empty */ }
+    public static class Personalization extends SettingsActivity { /* empty */ }
     //
     public static class TopLevelSettings extends SettingsActivity { /* empty */ }
     public static class ApnSettingsActivity extends SettingsActivity { /* empty */ }
