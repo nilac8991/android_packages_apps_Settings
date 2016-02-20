@@ -18,6 +18,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     settings:keywords="@string/keywords_display">
 
+    <!-- SystemApp Remover -->
+    <PreferenceScreen
+        android:id="@+id/system_app_remover"
+        android:title="@string/system_app_remover"
+        android:icon="@drawable/content_discard"
+        android:fragment="com.android.settings.xosp.SystemappRemover" 
+    />
+
     <PreferenceCategory
         android:key="screen_cat"
         android:title="@string/xosp_misc_screen_title">
