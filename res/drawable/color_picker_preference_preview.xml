@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Xperia Open Source Project
+<!-- Copyright (C) Copyright (C) 2015 DarkKat
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,10 +14,18 @@
      limitations under the License.
 -->
 
-<resources>
-    <dimen name="settings_tab_text">13.0dip</dimen>
-
-     <!-- Width and height of the color picker preference preview -->
-     <dimen name="color_picker_preference_preview_width_height">33dp</dimen>
-</resources>
- 
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/background"
+            android:drawable="@drawable/color_picker_preference_preview_alpha_pattern" />
+    <item android:id="@+id/color_fill">
+        <shape android:shape="oval">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+    <item android:id="@+id/boarder">
+        <shape android:shape="oval">
+            <stroke android:width="1dp"
+                    android:color="#ff6e6e6e" />
+        </shape>
+    </item>
+</layer-list>
