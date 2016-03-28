@@ -14,10 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
-    <!-- Color Picker -->
-    <string name="hex" translatable="false">Hex:</string>
-    <string name="hex_hint" translatable="false">#ff000000</string>
-
+     <!-- Color picker preference -->
+     <declare-styleable name="ColorPickerPreference">
+         <attr name="defaultColor" format="color" />
+         <attr name="resetColor1" format="color" />
+         <attr name="resetColor2" format="color" />
+         <attr name="resetColor1Title" format="string" />
+         <attr name="resetColor2Title" format="string" />
+         <attr name="alphaSliderVisible" format="boolean" />
+     </declare-styleable>
 </resources>

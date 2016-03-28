@@ -16,8 +16,23 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Color Picker -->
-    <string name="hex" translatable="false">Hex:</string>
-    <string name="hex_hint" translatable="false">#ff000000</string>
+    <!-- Color picker -->
 
+    <!-- Dialog -->
+
+    <!-- Dialog action bar -->
+
+    <!-- Height of the color picker dialog action bar -->
+    <dimen name="color_picker_dialog_action_bar_height">48dp</dimen>
+
+    <!-- Dialog color buttons -->
+
+    <!-- Top margin of the color picker dialog color buttons scroll view -->
+    <dimen name="color_picker_dialog_color_buttons_scroll_view_margin_top">16dp</dimen>
+
+    <!-- Left margin of the color picker dialog buttons title -->
+    <dimen name="color_picker_dialog_color_buttons_title_margin_left">8dp</dimen>
+
+    <!-- Left margin of the color picker dialog color buttons layout  -->
+    <dimen name="color_picker_dialog_color_buttons_layout_margin_left">4dp</dimen>
 </resources>
