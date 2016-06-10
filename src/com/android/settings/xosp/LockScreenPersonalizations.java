@@ -92,8 +92,10 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         Preference.OnPreferenceChangeListener{
 
     private static final String KEY_DTA_LOCK = "double_tap_sleep_anywhere";
+    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
 
     private SwitchPreference mDT2SAnywherePreference;
+    private SeekBarPreference mBlurRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,11 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         mDT2SAnywherePreference = (SwitchPreference) findPreference(KEY_DTA_LOCK);
         mDT2SAnywherePreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0) == 1));
+
+        mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius.setValue(Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
+        mBlurRadius.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -115,6 +122,13 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue){
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mBlurRadius) {
+            int width = ((Integer)newValue).intValue();
+            Settings.System.putInt(resolver,
+            Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
+            return true;
+        }
         return false;
     }
 

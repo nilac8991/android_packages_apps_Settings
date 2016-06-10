@@ -396,4 +396,9 @@
     <string name="system_app_remover_warning_summary">When you remove one of the system apps even if just one of them, the system will automatically reboot after the operation so make sure you save your stuff</string>
     <string name="system_app_remover_post_toast_reboot">Rebooting to apply the changes... </string>
 
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Lockscreen blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
+    <string name="lockscreen_blur_radius">Blur effect intensity</string>
+
 </resources>

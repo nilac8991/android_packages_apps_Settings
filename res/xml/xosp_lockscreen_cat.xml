@@ -22,4 +22,18 @@
            android:key="double_tap_sleep_anywhere"
            android:title="@string/double_tap_sleep_anywhere_title"
            android:summary="@string/double_tap_sleep_anywhere_summary" />
+
+        <SwitchPreference
+           android:key="lockscreen_see_through"
+           android:title="@string/lockscreen_see_through_title"
+           android:summary="@string/lockscreen_see_through_summary"
+           android:defaultValue="false" />
+
+        <com.android.settings.xosp.CustomSeekBarPreference
+           android:key="lockscreen_blur_radius"
+           android:title="@string/lockscreen_blur_radius"
+           settings:max="25"
+           settings:min="0"
+           android:defaultValue="14"
+           android:dependency="lockscreen_see_through" />
 </PreferenceScreen>
