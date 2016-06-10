@@ -182,4 +182,9 @@
     <string name ="xosp_navbar_switch_title">XOSP NavBar Switch </string>
     <string name ="xosp_navbar_switch_summary">Change NavBar icons to the old ones from MarshMallow</string>
 
-</resources>
+    <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">Lockscreen blur</string>
+    <string name="lockscreen_see_through_summary">Blurs and displays the content behind your lockscreen.</string>
+    <string name="lockscreen_blur_radius">Blur effect intensity</string>
+
+  </resources>

@@ -18,4 +18,18 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     settings:keywords="@string/keywords_display">
 
+        <SwitchPreference
+           android:key="lockscreen_see_through"
+           android:title="@string/lockscreen_see_through_title"
+           android:summary="@string/lockscreen_see_through_summary"
+           android:defaultValue="false" />
+
+        <com.android.settings.xosp.CustomSeekBarPreference
+           android:key="lockscreen_blur_radius"
+           android:title="@string/lockscreen_blur_radius"
+           settings:max="25"
+           settings:min="0"
+           android:defaultValue="14"
+           android:dependency="lockscreen_see_through" />
+
 </PreferenceScreen>
