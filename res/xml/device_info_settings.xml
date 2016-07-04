@@ -20,7 +20,7 @@
         android:title="@string/about_settings">
 
         <!-- XOSP Banner -->
-        <PreferenceScreen 
+        com.android.settings.xosp.XOSPLogo
             android:key="xosp_banner"
             android:enabled="false"
             android:selectable="false"
