@@ -52,6 +52,9 @@
     <color name="xosp_midnight_palette_A200">#809cb9</color>
     <color name="xosp_midnight_palette_A400">#374d64</color>
     <color name="xosp_midnight_palette_A700">#161f29</color>
+
+    <!-- Card Style Dashboard -->
+    <color name="dashboard_background_color">@drawable/dashboard_background</color>
+    <color name="dashboard_category_background_color">@drawable/dashboard_category_background</color>  
+
 </resources>
- 
- 
