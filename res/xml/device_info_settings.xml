@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2008 The Android Open Source Project
+     Copyright (C) 2013-2016 The Xperia Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -132,12 +133,6 @@
                 android:key="container"
                 android:title="@string/legal_information"
                 android:fragment="com.android.settings.LegalSettings" />
-
-        <!--TO-DO Remove cloud contributors once CMParts refactor is done -->
-        
-        <!-- Contributors cloud -->
-        <org.cyanogenmod.internal.cmparts.CMPartsPreference
-                android:key="contributors" />
 
 	</PreferenceCategory>
 
