@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Xperia Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="612"
+    android:viewportHeight="792"
+    android:width="612dp"
+    android:height="792dp">
+    <path
+        android:pathData="M243.67578 513.86133c-20.5874 -23.53613 -36.86719 -42.15235 -53.39941 -61.04785 46.45459 -71.92969 100.91748 -128.06836 170.27441 -167.5459 22.32227 19.28222 39.96094 34.5039 60.2207 52.00293 45.61133 -35.71778 98.72071 -56.26758 141.02344 -100.4502 -35.75 -32.83886 -67.5039 -62.0039 -99.6875 -91.55566 -187.15576 88.97754 -320.85303 224.61914 -409.599608 410.87793 31.630372 30.47558 54.924808 67.66504 99.692868 92.11426 30.31983 -44.53711 59.67823 -87.67774 91.4751 -134.39551z"
+        android:fillColor="#6f9e21" />
+    <path
+        android:pathData="M243.67578 513.86133c-31.79687 46.71777 -61.15527 89.8584 -91.4751 134.39551C107.43262 623.80762 84.138184 586.61816 52.507812 556.14258 141.25439 369.88379 274.95166 234.24219 462.10742 145.26465c32.1836 29.55176 63.9375 58.7168 99.6875 91.55566 -42.30273 44.18262 -95.41211 64.73242 -141.02344 100.4502 -20.25976 -17.49903 -37.89843 -32.72071 -60.2207 -52.00293 -69.35693 39.47754 -123.81982 95.61621 -170.27441 167.5459 16.53222 18.8955 32.81201 37.51172 53.39941 61.04785z"
+        android:fillColor="@color/theme_accent" />
+</vector>

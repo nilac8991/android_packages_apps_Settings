@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Xperia Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="612"
+    android:viewportHeight="792"
+    android:width="612dp"
+    android:height="792dp">
+    <path
+        android:pathData="M371.502 442.832C380.1016 351.4912 404.1387 319.3818 460.6309 319.4624C518.126 319.543 540.8896 350.5317 547.9434 442.7217C603.8486 438.0195 597.9961 477.6582 597.3223 515.0117C596.5391 558.708 596.3486 602.4414 597.4034 646.123C598.1212 675.7422 587.0176 689.9287 555.8829 689.416C492.213 688.3613 428.5069 688.3828 364.8301 689.416C335.4669 689.8926 324.8321 677.0742 325.4473 648.7305C326.5391 598.8086 327.5059 548.7539 325.1182 498.9199C323.4776 464.4531 332.0176 442.4942 371.502 442.832M513.6143 444.6484C517.3789 410.0264 522.5938 375.8149 487.2031 360.5952C470.7822 353.5347 444.5029 354.5527 429.0488 363.2393C398.8877 380.1802 401.9121 412.3184 406.5117 444.6484C442.1006 444.6484 476.2168 444.6484 513.6143 444.6484"
+        android:fillColor="@color/theme_accent" />
+    <path
+        android:pathData="M58.794922 238.39062C44.355469 219.22314 30.454102 200.77344 16.907715 182.79248 111.08984 85.351074 322.4668 73.061035 446.07031 180.2876c-14.89746 19.14551 -29.875 38.40088 -45.05859 57.9126 -115.00098 -72.23877 -227.64404 -71.81397 -342.216798 0.19042z"
+        android:fillColor="@color/theme_accent"
+        android:fillAlpha="0.6" />
+    <path
+        android:pathData="M381.74219 264.50146c-9.99805 13.74024 -20.625 28.34473 -34.12403 46.89698C270.17187 264.72852 192.08496 262.4873 113.36035 311.52295 100.00098 293.81299 88.509277 278.57861 77.464356 263.9375 148.37402 186.90869 325.58008 194.33545 381.74219 264.50146Z"
+        android:fillColor="@color/theme_accent"
+        android:fillAlpha="0.6" />
+    <path
+        android:pathData="M167.88184 385.53418c-13.6709 -18.5083 -25.18067 -34.08691 -36.55518 -49.48975 57.71826 -49.22607 131.82861 -50.01709 197.24854 -1.23047 -11.74805 16.1792 -23.54004 32.417 -36.4087 50.13428 -41.63086 -23.10058 -80.95459 -25.27588 -124.28466 0.58594z"
+        android:fillColor="@color/theme_accent" />
+    <path
+        android:pathData="M230.11572 470.07031c-17.70654 -24.3457 -31.22314 -42.93457 -45.44677 -62.49023 31.07666 -24.38233 58.88281 -23.59131 91.43554 0.20508 -14.31152 19.37988 -27.85058 37.71972 -45.98877 62.28515z"
+        android:fillColor="@color/theme_accent" />
+</vector>

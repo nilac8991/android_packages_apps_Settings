@@ -20,4 +20,9 @@
          <item name="android:textStyle">bold</item>
 	</style>
 
+    <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.Material.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/theme_primary</item>
+	</style>
+
 </resources>

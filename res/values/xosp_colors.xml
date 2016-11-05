@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Xperia Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+	<!-- Palette colors referenced by top-level themes. -->
+    <color name ="theme_primary">@color/xosp_blue_palette_100</color>
+    <color name="theme_primary_dark">@color/xosp_blue_palette_200</color>
+    <color name="theme_accent">@color/xosp_midnight_palette_500</color>
+
+    <!-- XOSP Palette colors -->
+    <color name="xosp_blue_palette_50">#1dacff</color>
+    <color name="xosp_blue_palette_100">#0083d0</color>
+    <color name="xosp_blue_palette_200">#006098</color>
+    <color name="xosp_blue_palette_300">#003350</color>
+    <color name="xosp_blue_palette_400">#001f32</color>
+    <color name="xosp_blue_palette_500">#000c13</color>
+    <color name="xosp_blue_palette_600">#000000</color>
+    <color name="xosp_blue_palette_700">#000000</color>
+    <color name="xosp_blue_palette_800">#000000</color>
+    <color name="xosp_blue_palette_900">#000000</color>
+    <color name="xosp_blue_palette_A100">#1dacff</color>
+    <color name="xosp_blue_palette_A200">#0083d0</color>
+    <color name="xosp_blue_palette_A400">#001f32</color>
+    <color name="xosp_blue_palette_A700">#000000</color>
+
+
+    <color name="xosp_midnight_palette_50">#b1c3d4</color>
+    <color name="xosp_midnight_palette_100">#809cb9</color>
+    <color name="xosp_midnight_palette_200">#5c80a5</color>
+    <color name="xosp_midnight_palette_300">#425d77</color>
+    <color name="xosp_midnight_palette_400">#374d64</color>
+    <color name="xosp_midnight_palette_500">#2c3e50</color>
+    <color name="xosp_midnight_palette_600">#212f3c</color>
+    <color name="xosp_midnight_palette_700">#161f29</color>
+    <color name="xosp_midnight_palette_800">#0b1015</color>
+    <color name="xosp_midnight_palette_900">#010101</color>
+    <color name="xosp_midnight_palette_A100">#b1c3d4</color>
+    <color name="xosp_midnight_palette_A200">#809cb9</color>
+    <color name="xosp_midnight_palette_A400">#374d64</color>
+    <color name="xosp_midnight_palette_A700">#161f29</color>
+</resources>
+ 
+ 
