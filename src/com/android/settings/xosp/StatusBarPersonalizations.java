@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2014-2015 The CyanogenMod Project
  * Copyright (C) 2016 The Xperia Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -57,22 +58,84 @@ import cyanogenmod.providers.CMSettings;
 public class StatusBarPersonalizations extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener{
         
+    private static final String TAG = "StatusBar";
+
+    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+    private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+    private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
+    private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+
+    private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
+    private static final int STATUS_BAR_BATTERY_STYLE_XPERIA_TEXT = 6;
+
+    private CMSystemSettingListPreference mStatusBarClock;
+    private CMSystemSettingListPreference mStatusBarAmPm;
+    private CMSystemSettingListPreference mStatusBarBattery;
+    private CMSystemSettingListPreference mQuickPulldown;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        addPreferencesFromResource(R.xml.xosp_statusbar_cat);
+        addPreferencesFromResource(R.xml.xosp_status_bar_cat);
+
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mStatusBarClock = (CMSystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+        mStatusBarAmPm = (CMSystemSettingListPreference) findPreference(STATUS_BAR_AM_PM);
+        mStatusBarBattery = (CMSystemSettingListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
+        mQuickPulldown = (CMSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
+
+        if (DateFormat.is24HourFormat(getActivity())) {
+            mStatusBarAmPm.setEnabled(false);
+            mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
+        }
+
+        mStatusBarBattery.setOnPreferenceChangeListener(this);
+        enableStatusBarBatteryDependents(mStatusBarBattery.getIntValue(2));
+        updatePulldownSummary(mQuickPulldown.getIntValue(0));
     }
-    
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Adjust clock position for RTL if necessary
+        Configuration config = getResources().getConfiguration();
+        if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                mStatusBarClock.setEntries(getActivity().getResources().getStringArray(
+                        R.array.status_bar_clock_style_entries_rtl));
+                mStatusBarClock.setSummary(mStatusBarClock.getEntry());
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        AlertDialog dialog;
-        ContentResolver resolver = getActivity().getContentResolver();
-        return false;
+        int batteryStyle = Integer.valueOf((String) newValue);
+        enableStatusBarBatteryDependents(batteryStyle);
+
+        return true;
     }
-    
-    @Override
-    protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+
+    private void enableStatusBarBatteryDependents(int batteryIconStyle) {
+        if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
+                batteryIconStyle == STATUS_BAR_BATTERY_STYLE_XPERIA_TEXT) {
+                //Don't do anything
+        } else {
+            //Don't do anything either here
+        }
+    }
+
+    private void updatePulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // quick pulldown deactivated
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_off));
+        } else {
+            String direction = res.getString(value == 2
+                    ? R.string.status_bar_quick_qs_pulldown_summary_left
+                    : R.string.status_bar_quick_qs_pulldown_summary_right);
+            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
+        }
     }
     
 }
