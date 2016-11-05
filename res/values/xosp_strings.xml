@@ -93,5 +93,18 @@
 
     <!-- NFC PreferenceCategory title -->
     <string name="nfc_title_category">NFC</string>
-  
+
+    <!-- XOSP extra settings -->
+    <string name="xosp_settings_header">XOSP World</string>
+    <string name="xosp_settings_main_title">XOSPSettings</string>
+    <string name="xosp_setting_equalizer_title">Equalizer</string>
+    <string name="xosp_setting_changelog_title">ChangeLOG</string>
+    <string name="xosp_settings_statusbar_cat">Status Bar Personalizations</string>
+    <string name="xosp_settings_buttons_cat">Buttons Personalizations</string>
+    <string name="xosp_settings_misc_cat">Misc Personalizations</string>
+    <string name="xosp_settings_lockscreen_cat">LockScreen Personalizations</string>
+    <string name="xosp_settings_blur_cat">Blur Personalizations</string>
+    <string name="notification_drawer_title">Notification Drawer Personalizations</string>
+    <string name="header_cat">Notification Header</string>
+
   </resources>
