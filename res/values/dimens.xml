@@ -19,7 +19,7 @@
 
     <dimen name="device_memory_usage_button_width">16dip</dimen>
     <dimen name="device_memory_usage_button_height">32dip</dimen>
-    <dimen name="action_bar_switch_padding">16dip</dimen>
+    <dimen name="action_bar_switch_padding">5dip</dimen>
 
     <dimen name="app_icon_size">40dip</dimen>
     <dimen name="screen_margin_sides">64dip</dimen>
@@ -90,11 +90,15 @@
     <dimen name="actionbar_contentInsetStart">16dp</dimen>
     <dimen name="actionbar_subsettings_contentInsetStart">72dp</dimen>
 
+    <!-- Dashboard margins between each tiles within the layout -->
+    <dimen name="dashboard_cell_gap_x">4dp</dimen>
+    <dimen name="dashboard_cell_gap_y">4dp</dimen>
+
     <!-- Dashboard padding in its container -->
-    <dimen name="dashboard_padding_start">0dp</dimen>
-    <dimen name="dashboard_padding_end">0dp</dimen>
-    <dimen name="dashboard_padding_top">0dp</dimen>
-    <dimen name="dashboard_padding_bottom">0dp</dimen>
+    <dimen name="dashboard_padding_start">15dp</dimen>
+    <dimen name="dashboard_padding_end">15dp</dimen>
+    <dimen name="dashboard_padding_top">17dp</dimen>
+    <dimen name="dashboard_padding_bottom">20dp</dimen>
 
     <!-- Dashboard Header margin in its container -->
     <dimen name="dashboard_header_margin_start">0dp</dimen>
@@ -105,7 +109,7 @@
     <dimen name="dashboard_category_padding_end">0dp</dimen>
 
     <!-- Dashboard category panel elevation -->
-    <dimen name="dashboard_category_elevation">2dp</dimen>
+    <dimen name="dashboard_category_elevation">5dp</dimen>
 
     <!-- Dashboard category layout height -->
     <dimen name="dashboard_category_height">48dp</dimen>
@@ -117,7 +121,7 @@
     <dimen name="dashboard_tile_minimum_height">72dp</dimen>
 
     <!-- Dashboard image tile size -->
-    <dimen name="dashboard_tile_image_size">24dp</dimen>
+    <dimen name="dashboard_tile_image_size">33dp</dimen>
 
     <!-- Dashboard tile image margin start / end -->
     <dimen name="dashboard_tile_image_margin_start">16dp</dimen>

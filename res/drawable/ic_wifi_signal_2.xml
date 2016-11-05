@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (C) 2015 The Android Open Source Project
+<!-- Copyright (C) 2016 The Xperia Open Source Project
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+          http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="26dp"
-    android:height="24dp"
-    android:viewportWidth="26"
-    android:viewportHeight="24">
+    android:viewportWidth="612"
+    android:viewportHeight="792"
+    android:width="612dp"
+    android:height="792dp">
     <path
-        android:fillAlpha="0.3"
-        android:fillColor="?attr/wifi_signal_color"
-        android:pathData="M13.0,22.0L25.6,6.5C25.1,6.1 20.3,2.1 13.0,2.1S0.9,6.1 0.4,6.5L13.0,22.0L13.0,22.0L13.0,22.0L13.0,22.0L13.0,22.0z"/>
+        android:pathData="M547.58398 331.51807C387.39941 228.01025 230.47314 227.68799 70.002441 331.13184 48.299805 303.16602 27.115723 275.86523 6.0644531 248.73584 148.39209 111.5166 458.04004 110.9585 610.95703 247.71289c-20.17578 26.68555 -40.4873 53.54248 -63.37305 83.80518z"
+        android:fillColor="@color/theme_accent"
+        android:fillAlpha="0.6" />
     <path
-        android:fillColor="?attr/wifi_signal_color"
-        android:pathData="M13.0,22.0l7.6,-9.4C20.3,12.4 17.4,10.0 13.0,10.0s-7.3,2.4 -7.6,2.7L13.0,22.0L13.0,22.0L13.0,22.0L13.0,22.0L13.0,22.0z"/>
+        android:pathData="M92.949707 362.26709C206.10937 264.43213 413.8916 264.6543 523.80273 362.50342 506.42578 385.22559 488.91895 408.10547 470.3457 432.40039 361.6084 362.03857 254.87988 362.69629 146.39258 432.12207 127.77002 407.77637 110.29883 384.94629 92.949707 362.26709Z"
+        android:fillColor="@color/theme_accent"
+        android:fillAlpha="0.6" />
+    <path
+        android:pathData="M221.11572 533.14746c-17.52783 -23.75879 -33.94385 -46.0166 -50.05176 -67.8584 59.73145 -65.99023 195.84522 -68.18066 275.83057 -3.08301 -16.18359 22.79297 -32.59473 45.90918 -50.38086 70.95606 -58.77246 -32.9668 -116.73291 -33.81836 -175.39795 -0.0146z"
+        android:fillColor="@color/theme_accent" />
+    <path
+        android:pathData="M243.49072 564.5625c48.69922 -34.2334 85.48584 -33.73242 128.80518 0.76465 -19.89551 26.39941 -39.85645 52.87012 -63.65039 84.42871 -23.4419 -30.64941 -43.58447 -56.98438 -65.15479 -85.19336z"
+        android:fillColor="@color/theme_accent" />
 </vector>
