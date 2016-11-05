@@ -118,9 +118,9 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
         if (batteryIconStyle == STATUS_BAR_BATTERY_STYLE_HIDDEN ||
                 batteryIconStyle == STATUS_BAR_BATTERY_STYLE_XPERIA_TEXT) {
-                //Don't do anything
+                mStatusBarBatteryShowPercent.setEnabled(false);
         } else {
-            //Don't do anything either here
+            mStatusBarBatteryShowPercent.setEnabled(true);
         }
     }
 
