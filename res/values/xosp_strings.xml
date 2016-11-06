@@ -90,5 +90,8 @@
     <string name="zen_mode_summary_all_messages">all messages</string>
     <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
     <string name="zen_mode_summary_selected_messages">selected messages</string>
+
+    <!-- NFC PreferenceCategory title -->
+    <string name="nfc_title_category">NFC</string>
   
   </resources>
