@@ -24,6 +24,18 @@
         android:summary="@string/disable_navkeys_summary"
         android:defaultValue="false" />
 
+    <PreferenceScreen
+        android:key="xosp_navbar_dimens"
+        android:title="@string/xosp_navbar_dimens_title"
+        android:fragment="com.android.settings.xosp.NavBarDimensions" />
+
+    <SwitchPreference
+        android:key="xosp_navbar_switch"
+        android:title="@string/xosp_navbar_switch_title"
+        android:summary="@string/xosp_navbar_switch_summary"
+        android:dependency="disable_nav_keys"
+        android:defaultValue="false" />
+
     <com.android.settings.xosp.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
@@ -33,12 +45,6 @@
     <PreferenceCategory
         android:key="navigation_bar_category"
         android:title="@string/navigation_bar_category" >
-
-        <SwitchPreference
-            android:key="xosp_navbar_switch"
-            android:title="@string/xosp_navbar_switch_title"
-            android:summary="@string/xosp_navbar_switch_summary"
-            android:defaultValue="false" />
 
         <cyanogenmod.preference.CMSystemSettingSwitchPreference
             android:key="navigation_bar_left"
