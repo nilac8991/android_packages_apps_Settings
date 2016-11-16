@@ -34,6 +34,12 @@
         android:key="navigation_bar_category"
         android:title="@string/navigation_bar_category" >
 
+        <SwitchPreference
+            android:key="xosp_navbar_switch"
+            android:title="@string/xosp_navbar_switch_title"
+            android:summary="@string/xosp_navbar_switch_summary"
+            android:defaultValue="false" />
+
         <cyanogenmod.preference.CMSystemSettingSwitchPreference
             android:key="navigation_bar_left"
             android:title="@string/navigation_bar_left_title"

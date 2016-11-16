@@ -78,8 +78,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
-    private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
-            = "camera_double_tap_power_gesture";
+    private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE = "camera_double_tap_power_gesture";
+    private static final String KEY_XOSP_NAVBAR_SWITCH = "xosp_navbar_switch";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -150,6 +150,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private SwitchPreference mPowerEndCall;
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mCameraDoubleTapPowerGesture;
+    private SwitchPreference mNavBarSwitch;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -160,6 +161,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.xosp_buttons_cat);
+        PreferenceScreen prefSet = getPreferenceScreen();
 
         final Resources res = getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
@@ -449,6 +451,10 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
                 mVolumeWakeScreen.setDisableDependentsState(true);
             }
         }
+        
+        mNavBarSwitch = (SwitchPreference) findPreference(KEY_XOSP_NAVBAR_SWITCH);
+        mNavBarSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.XOSP_NAVBAR_SWITCH, 0) == 1));
     }
 
     @Override
@@ -721,6 +727,10 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         } else if (preference == mHomeAnswerCall) {
             handleToggleHomeButtonAnswersCallPreferenceClick();
             return true;
+        } else if (preference == mNavBarSwitch) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.XOSP_NAVBAR_SWITCH, enabled ? 1:0); 
         }
 
         return super.onPreferenceTreeClick(preference);
