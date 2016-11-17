@@ -39,7 +39,7 @@
             android:key="statusbar_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
-            android:max="20"
+            settings:max="20"
             settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="10" />
@@ -48,7 +48,7 @@
             android:key="statusbar_blur_radius"
             android:title="@string/blurred_radius"
             android:summary="@string/blurred_radius_summary"
-            android:max="25"
+            settings:max="25"
             settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="5" />
@@ -67,7 +67,7 @@
         <com.android.settings.xosp.CustomSeekBarPreference
             android:key="notifications_transluency"
             android:title="@string/transluency_level_universal"
-            android:max="100"
+            settings:max="100"
             settings:min="0"
             android:dependency="translucent_notifications_pref"
             android:defaultValue="60" />
@@ -86,7 +86,7 @@
         <com.android.settings.xosp.CustomSeekBarPreference
             android:key="quick_settings_transluency"
             android:title="@string/transluency_level_universal"
-            android:max="100"
+            settings:max="100"
             settings:min="0"
             android:dependency="translucent_quick_settings_pref"
             android:defaultValue="60" />
