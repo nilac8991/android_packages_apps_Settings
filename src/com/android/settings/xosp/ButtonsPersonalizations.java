@@ -37,6 +37,7 @@ import android.view.IWindowManager;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
+import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -49,6 +50,7 @@ import java.util.List;
 
 import cyanogenmod.hardware.CMHardwareManager;
 import cyanogenmod.providers.CMSettings;
+import com.android.internal.util.benzo.Helpers;
 
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 
@@ -702,6 +704,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        
+        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mSwapVolumeButtons) {
             int value = mSwapVolumeButtons.isChecked()
                     ? (ScreenType.isTablet(getActivity()) ? 2 : 1) : 0;
@@ -730,12 +734,17 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         } else if (preference == mNavBarSwitch) {
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.XOSP_NAVBAR_SWITCH, enabled ? 1:0); 
+
+            doSystemUIReboot();
         }
 
         return super.onPreferenceTreeClick(preference);
     }
 
+    private static void doSystemUIReboot() {
+        Helpers.restartSystemUI();
+    }
+    
     private void handleTogglePowerButtonEndsCallPreferenceClick() {
         Settings.Secure.putInt(getContentResolver(),
                 Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR, (mPowerEndCall.isChecked()
