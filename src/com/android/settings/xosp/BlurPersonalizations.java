@@ -21,12 +21,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.SwitchPreference;
-import android.preference.TwoStatePreference;
-import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.preference.Preference.OnPreferenceChangeListener;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -44,15 +42,58 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-//import com.android.settings.xosp.SeekBarPreference;
+import com.android.settings.xosp.CustomSeekBarPreference;
 
 public class BlurPersonalizations extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
+
+//Switch Preferences
+    private SwitchPreference mExpand;
+    private SwitchPreference mNotiTrans;
+    private SwitchPreference mQuickSett;
+    
+    //Transluency,Radius and Scale
+    private CustomSeekBarPreference mScale;
+    private CustomSeekBarPreference mRadius;
+    private CustomSeekBarPreference mQuickSettPerc;
+    private CustomSeekBarPreference mNotSettPerc;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.xosp_blur_cat);
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mExpand = (SwitchPreference) prefSet.findPreference("blurred_status_bar_expanded_enabled_pref");
+        mExpand.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 0) == 1));
+
+        mScale = (CustomSeekBarPreference) findPreference("statusbar_blur_scale");
+        mScale.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 10));
+        mScale.setOnPreferenceChangeListener(this);
+
+        mRadius = (CustomSeekBarPreference) findPreference("statusbar_blur_radius");
+        mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5));
+        mRadius.setOnPreferenceChangeListener(this);
+
+        mNotiTrans = (SwitchPreference) prefSet.findPreference("translucent_notifications_pref");
+        mNotiTrans.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 0) == 1));
+
+        mQuickSett = (SwitchPreference) prefSet.findPreference("translucent_quick_settings_pref");
+        mQuickSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, 0) == 1));
+
+        mQuickSettPerc = (CustomSeekBarPreference) findPreference("quick_settings_transluency");
+        mQuickSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, 60));
+        mQuickSettPerc.setOnPreferenceChangeListener(this);
+
+        mNotSettPerc = (CustomSeekBarPreference) findPreference("notifications_transluency");
+        mNotSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PRECENTAGE_PREFERENCE_KEY, 60));
+        mNotSettPerc.setOnPreferenceChangeListener(this);
+
     }
 
     @Override
@@ -68,6 +109,45 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mScale) {
+            int value = ((Integer)newValue).intValue();
+            Settings.System.putInt(
+                resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, value);
+            return true;
+        } else if (preference == mRadius) {
+            int value = ((Integer)newValue).intValue();
+            Settings.System.putInt(
+                resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, value);
+            return true;
+        } else if (preference == mQuickSettPerc) {
+            int value = ((Integer)newValue).intValue();
+            Settings.System.putInt(
+                resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, value);
+            return true;
+        } else if (preference == mNotSettPerc) {
+            int value = ((Integer)newValue).intValue();
+            Settings.System.putInt(
+                resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PRECENTAGE_PREFERENCE_KEY, value);
+            return true;
+        }
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if  (preference == mExpand) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, enabled ? 1:0);
+        } else if (preference == mNotiTrans) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, enabled ? 1:0);     
+        } else if (preference == mQuickSett) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, enabled ? 1:0); 
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 }
