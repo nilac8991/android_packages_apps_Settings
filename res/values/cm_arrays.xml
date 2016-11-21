@@ -204,6 +204,11 @@
     </string-array>
 
     <string-array name="zen_vibration_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
 
     <!-- Status bar -->
     <string-array name="status_bar_clock_style_entries" translatable="false">
