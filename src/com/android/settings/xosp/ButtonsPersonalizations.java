@@ -734,6 +734,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         } else if (preference == mNavBarSwitch) {
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.XOSP_NAVBAR_SWITCH, enabled ? 1:0);
 
             doSystemUIReboot();
         }
