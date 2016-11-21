@@ -24,11 +24,6 @@
         android:summary="@string/disable_navkeys_summary"
         android:defaultValue="false" />
 
-    <PreferenceScreen
-        android:key="xosp_navbar_dimens"
-        android:title="@string/xosp_navbar_dimens_title"
-        android:fragment="com.android.settings.xosp.NavBarDimensions" />
-
     <SwitchPreference
         android:key="xosp_navbar_switch"
         android:title="@string/xosp_navbar_switch_title"
