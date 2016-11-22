@@ -78,9 +78,9 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5));
         mRadius.setOnPreferenceChangeListener(this);
 
-        mNotiTrans = (SwitchPreference) prefSet.findPreference("translucent_notifications_pref");
+        /*mNotiTrans = (SwitchPreference) prefSet.findPreference("translucent_notifications_pref");
         mNotiTrans.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 0) == 1));
+                Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 0) == 1));*/
 
         mQuickSett = (SwitchPreference) prefSet.findPreference("translucent_quick_settings_pref");
         mQuickSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
