@@ -55,10 +55,13 @@
     <string name="translucent_quick_settings_pref">Blurred Expanded StatusBar</string>
     <string name="translucent_quick_settings_pref_summary">Blur the background of expanded status bar </string>
     <string name="transluency_level_universal">Transluency level</string>
+    <string name="blurred_recent_app_enabled_pref">Blurred Recent Apps</string>
+    <string name="blurred_recent_app_enabled_pref_summary">Blur the background of Recent Apps activity</string>
 
     <string name="blur_expstatus_cat">Expanded StatusBar </string>
     <string name="blur_notifications_cat">Notifications</string>
     <string name="blur_qs_cat">Quick Settings</string>
+    <string name="blur_recents_cat">Recent Apps</string> 
 
     <string name="blurred_scale">Blur Scale</string>
     <string name="blurred_scale_summary">Quailty of blur image</string>
