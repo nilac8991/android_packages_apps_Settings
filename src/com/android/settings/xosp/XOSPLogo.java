@@ -20,7 +20,8 @@ import android.content.Context;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
-import android.preference.Preference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +30,7 @@ import com.android.settings.R;
 
 public class XOSPLogo extends Preference {
 
-	 public XOSPLogo(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+     public XOSPLogo(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
          super(context, attrs, defStyleAttr, defStyleRes);
      }
  
@@ -43,8 +44,8 @@ public class XOSPLogo extends Preference {
 
     AnimationDrawable XOSPAnimation;
 
-    protected void onBindView(View rootView) {
-        super.onBindView(rootView);
+    @Override
+    public void onBindViewHolder(PreferenceViewHolder rootView) {
 
         ImageView XOSPImage = (ImageView) rootView.findViewById(R.id.xosp_logo);
         XOSPImage.setBackgroundResource(R.drawable.xosp_logo);
