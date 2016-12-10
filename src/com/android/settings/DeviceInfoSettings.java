@@ -81,6 +81,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String MBN_VERSION_PATH = "/persist/speccfg/mbnversion";
     private static final String QGP_VERSION_PATH = "/persist/speccfg/qgpversion";
     private static final String KEY_MOD_VERSION = "mod_version";
+    private static final String KEY_XOSP_APPS="xosp_apps";
     private static final String KEY_MOD_BUILD_DATE = "build_date";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
@@ -148,6 +149,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MOD_VERSION, "ro.xosp.display.version");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        setStringSummary(KEY_XOSP_APPS, "XOSPApps not installed!");
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -182,6 +184,14 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_FEEDBACK));
         }
 
+        //XOSPApps Verification
+        if (SystemProperties.get("ro.xosp.apps").equals("true"))
+            setStringSummary(KEY_XOSP_APPS, "XOSPApps installed!");
+        else if (SystemProperties.get("ro.xosp.apps").equals("dirty"))
+            setStringSummary(KEY_XOSP_APPS, "XOSPApps installed but restored after a dirty flash!");
+        else 
+            setStringSummary(KEY_XOSP_APPS, "XOSPApps not installed!");
+        
         /*
          * Settings is a generic app and should not contain any device-specific
          * info.

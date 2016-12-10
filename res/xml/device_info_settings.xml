@@ -110,6 +110,14 @@
                 android:title="@string/mod_version"
                 android:summary="@string/mod_version_default" />
 
+        <!-- XOSPApps -->
+        <Preference android:key="xosp_apps"
+                style="?android:preferenceInformationStyle"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/xospapps_title"
+                android:summary="@string/xospapps_default_string" />
+
         <!-- Security patch level -->
         <PreferenceScreen android:key="security_patch"
                 android:title="@string/security_patch"
