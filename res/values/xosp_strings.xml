@@ -90,4 +90,8 @@
     <string name="blur_cat_notice">Notice</string>
     <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
 
+    <!-- XOSPApps -->
+    <string name="xospapps_title">XOSPApps status</string>
+    <string name="xospapps_default_string">Not installed</string>
+
 </resources>
