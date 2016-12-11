@@ -32,6 +32,8 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.nfc.NfcAdapter;
 import android.os.AsyncTask;
@@ -138,6 +140,7 @@ import com.android.settingslib.drawer.Tile;
 
 import java.net.URISyntaxException;
 import com.android.settings.xosp.XOSPMain;
+import com.android.settings.xosp.XOSPEqualizerInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -234,6 +237,11 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final String EMPTY_QUERY = "";
 
     private static final int REQUEST_SUGGESTION = 42;
+    
+    private static final String BATTERYADVISER_ACTIVITY = "com.android.settings.BatteryAdviser";
+    private static final String XC_ACTIVITY = "com.android.settings.XC";
+    private static final String XOSPDELTA_ACTIVITY = "com.android.settings.XOSPDelta";
+    private static final String XOSP_DELTA = "delta.out386.xosp";
 
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
@@ -373,6 +381,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             ManageDomainUrls.class.getName(),
             AutomaticStorageManagerSettings.class.getName()
             XOSPMain.class.getName(),
+            XOSPEqualizerInfo.class.getName(),
     };
 
 
@@ -577,6 +586,7 @@ public class SettingsActivity extends SettingsDrawerActivity
         mIsShowingDashboard = className.equals(Settings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName())
                 || className.equals(Settings.XOSPMain.class.getName())
+                || className.equals(Settings.XOSPEqualizerInfo.class.getName())
                 || className.equals(Settings.DeviceSettings.class.getName())
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());
@@ -1048,6 +1058,31 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
+
+        if (BATTERYADVISER_ACTIVITY.equals(fragmentName)) {
+            Intent batteryAIntent = new Intent();
+            batteryAIntent.setClassName("com.sonymobile.androidapp.batteryadviser", "com.sonymobile.androidapp.batteryadviser.BatteryAdviserActivity");
+            startActivity(batteryAIntent);
+            finish();
+            return null;
+        }
+        
+        if (XOSPDELTA_ACTIVITY.equals(fragmentName)) {
+            Intent xospdeltaIntent = new Intent();
+            xospdeltaIntent.setClassName("delta.out386.xosp", "delta.out386.xosp.MainActivity");
+            startActivity(xospdeltaIntent);
+            finish();
+            return null;
+        }
+        
+        /*if (XC_ACTIVITY.equals(fragmentName)) {
+            Intent xcIntent = new Intent();
+            xcIntent.setClassName("com.xosp.nilac.changelog", "com.xosp.nilac.changelog.MainActivity");
+            startActivity(xcIntent);
+            finish();
+            return null;
+        }*/
+            
         if (validate && !isValidFragment(fragmentName)) {
             throw new IllegalArgumentException("Invalid fragment for this activity: "
                     + fragmentName);
@@ -1083,6 +1118,16 @@ public class SettingsActivity extends SettingsDrawerActivity
         });
     }
 
+    public boolean isPackageExisted(String targetPackage){
+        PackageManager pm=getPackageManager();
+        try {
+                PackageInfo info=pm.getPackageInfo(targetPackage,PackageManager.GET_META_DATA);
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
+            }  
+        return true;
+    }
+    
     private void doUpdateTilesList() {
         PackageManager pm = getPackageManager();
         final UserManager um = UserManager.get(this);
@@ -1140,6 +1185,15 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
+        
+        final boolean xospDeltaSupport;
+        if (!isPackageExisted(XOSP_DELTA))
+            xospDeltaSupport = false;
+        else
+            xospDeltaSupport = true;
+        setTileEnabled(new ComponentName(packageName,
+                Settings.XOSPDeltaActivity.class.getName()),
+                xospDeltaSupport, isAdmin, pm);
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);

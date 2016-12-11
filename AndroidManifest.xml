@@ -216,6 +216,93 @@
 
         <activity
              android:name=".xosp.XOSPMain" />
+        
+        <!-- XOSPDelta -->
+        <activity android:name="Settings$XOSPDeltaActivity"
+                android:label="@string/xosp_delta_activity"
+                android:icon="@drawable/ic_xospdelta"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.xosp" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.XOSPDelta" />
+        </activity>
+        
+        <!-- XCApp
+        <activity android:name="Settings$XCActivity"
+                android:label="@string/xosp_changelog_activity"
+                android:icon="@drawable/ic_settings_xc"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.xosp" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.XC" />
+        </activity>-->
+        
+        <!-- Equalizer -->
+        <activity android:name="Settings$XOSPEqualizerInfoActivity"
+                android:label="@string/xosp_equalizer_activity"
+                android:icon="@drawable/ic_settings_equalizer"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.xosp" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ProcessStatsSummary" />
+        </activity>
+        
+        <!-- Keep compatibility with old shortcuts. -->
+        <activity android:name="Settings$XOSPEqualizerInfoActivity"
+                  android:label="@string/xosp_equalizer_activity"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.xosp.XOSPEqualizerInfo" />
+        </activity>
+
+        <activity
+             android:name=".xosp.XOSPEqualizerInfo" />
+        
+        <!-- Sony Battery Adviser -->
+        <activity android:name="Settings$BatterAdviserActivity"
+                android:label="@string/xosp_battery_adviser_activity"
+                android:icon="@drawable/ic_settings_battery_adviser"
+                android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="3">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.xosp" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.BatteryAdviser" />
+        </activity>
 
         <!-- Wireless Controls -->
 

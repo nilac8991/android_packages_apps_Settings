@@ -106,5 +106,25 @@
     <string name="xosp_settings_blur_cat">Blur Personalizations</string>
     <string name="notification_drawer_title">Notification Drawer Personalizations</string>
     <string name="header_cat">Notification Header</string>
+    
+    <!-- XOSP External activities -->
+    <string name="xosp_battery_adviser_activity">Sony Battery Adviser</string>
+    <string name="xosp_delta_activity">XOSPDelta</string>
+    <string name="xosp_changelog_activity">XOSPChangeLOG</string>
+    <string name="xosp_equalizer_activity">Equalizer</string>
+    
+    
+    <!-- XOSP Equalizer Infos -->
+    <string name="equalizer_question_one_title">Why no more ViPER?</string>
+    <string name="equalizer_question_one_summary">I wanted something different this time for the ROM, even If I know ViPER is the best of all.</string>
+    <string name="equalizer_question_two_title">How can I use it?</string>
+    <string name="equalizer_question_two_summary">You can use the Equalizer in the apps supporting external Equalizers so for example Music and Spotify are supported but also others for sure.</string>
+    <string name="equalizer_question_three_title">Can I use ViPER at the same time?</string>
+    <string name="equalizer_question_three_summary">Of course you can! You can use ViPER and XOSP Equalizer at the same time for an even better audio experience!</string>
+    <string name="equalizer_question_four_title">Problems with the Custom profile?</string>
+    <string name="equalizer_question_four_summary">Yeah I know, it is a visual issue in the app but I will try to fix it as soon as possible </string>
+    <string name="equalizer_question_five_title">Who said all these?</string>
+    <string name="equalizer_question_five_summary">Me, the developer (nilac)</string>    
+
 
   </resources>
