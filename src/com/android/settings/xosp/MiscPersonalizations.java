@@ -91,8 +91,10 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
     
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
+    private static final String KEY_DTA_LOCK = "double_tap_sleep_anywhere";
     
     private SwitchPreference mTapToWakePreference;
+    private SwitchPreference mDT2SAnywherePreference;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,9 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
                 if (isTapToWakeAvailable(getResources()))
                     mTapToWakePreference.setOnPreferenceChangeListener(this);
             }
+        mDT2SAnywherePreference = (SwitchPreference) findPreference(KEY_DTA_LOCK);
+        mDT2SAnywherePreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0) == 1));
     }
     
     private static boolean isTapToWakeAvailable(Resources res) {
@@ -138,6 +143,17 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
         }
         return true;
+    }
+    
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mDT2SAnywherePreference) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, enabled ? 1:0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
     
     protected int getMetricsCategory(){
