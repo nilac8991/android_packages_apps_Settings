@@ -84,6 +84,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE = "camera_double_tap_power_gesture";
     private static final String KEY_XOSP_NAVBAR_SWITCH = "xosp_navbar_switch";
+    private static final String KEY_DT2S_NAVBAR = "double_tap_sleep_navbar";
 
     private static final String CATEGORY_POWER = "power_key";
     private static final String CATEGORY_HOME = "home_key";
@@ -157,6 +158,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private SwitchPreference mHomeAnswerCall;
     private SwitchPreference mCameraDoubleTapPowerGesture;
     private SwitchPreference mNavBarSwitch;
+    private SwitchPreference mDT2SNavBarPreference;
 
     private PreferenceCategory mNavigationPreferencesCat;
 
@@ -479,6 +481,10 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         mNavBarSwitch = (SwitchPreference) findPreference(KEY_XOSP_NAVBAR_SWITCH);
         mNavBarSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.XOSP_NAVBAR_SWITCH, 0) == 1));
+        
+        mDT2SNavBarPreference = (SwitchPreference) findPreference(KEY_DT2S_NAVBAR);
+        mDT2SNavBarPreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_NAVBAR, 0) == 1));
     }
 
     @Override
@@ -760,6 +766,11 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
             Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.XOSP_NAVBAR_SWITCH, enabled ? 1:0);
             doSystemUIReboot();
+        } else if (preference == mDT2SNavBarPreference) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_NAVBAR, enabled ? 1:0);
+            return true;
         }
 
         return super.onPreferenceTreeClick(preference);
