@@ -69,13 +69,11 @@ import android.os.UserHandle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.PreferenceCategory;
 import android.provider.SearchIndexableResource;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.Settings;
@@ -92,24 +90,54 @@ import cyanogenmod.providers.CMSettings;
 public class MiscPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
     
+    private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
+    
+    private SwitchPreference mTapToWakePreference;
+    
     @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        final Activity activity = getActivity();
+        addPreferencesFromResource(R.xml.xosp_misc_cat);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = activity.getContentResolver();
+        
+        mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
+            if (mTapToWakePreference != null) {
+                if (isTapToWakeAvailable(getResources()))
+                    mTapToWakePreference.setOnPreferenceChangeListener(this);
+            }
+    }
+    
+    private static boolean isTapToWakeAvailable(Resources res) {
+        return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
     
     @Override
     public void onResume() {
         super.onResume();
+        updateState();
+    }
+    
+    private void updateState() {
+    
+        // Update tap to wake if it is available.
+        if (mTapToWakePreference != null) {
+            int value = Settings.Secure.getInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, 0);
+            mTapToWakePreference.setChecked(value != 0);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+        final String key = preference.getKey();
+        
+        if (preference == mTapToWakePreference) {
+            boolean value = (Boolean) objValue;
+            Settings.Secure.putInt(getContentResolver(), DOUBLE_TAP_TO_WAKE, value ? 1 : 0);
+        }
         return true;
-    }
-    
-    private static boolean isTapToWakeAvailable(Resources res) {
-        return res.getBoolean(com.android.internal.R.bool.config_supportDoubleTapWake);
     }
     
     protected int getMetricsCategory(){

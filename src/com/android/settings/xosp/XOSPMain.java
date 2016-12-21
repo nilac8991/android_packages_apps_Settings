@@ -102,11 +102,11 @@ public class XOSPMain extends SettingsPreferenceFragment {
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
             frags[0] = new StatusBarPersonalizations();
-            frags[1] = new LockScreenPersonalizations();
-            frags[2] = new BlurPersonalizations();
-            frags[3] = new ButtonsPersonalizations();
-            frags[4] = new MiscPersonalizations();
-            frags[5] = new NotificationDrawerSettings();
+            //frags[1] = new LockScreenPersonalizations();
+            frags[1] = new BlurPersonalizations();
+            frags[2] = new ButtonsPersonalizations();
+            frags[3] = new MiscPersonalizations();
+            //frags[5] = new NotificationDrawerSettings();
         }
 
         @Override
@@ -133,7 +133,7 @@ public class XOSPMain extends SettingsPreferenceFragment {
                     getString(R.string.xosp_settings_blur_cat),
                     getString(R.string.xosp_settings_buttons_cat),
                     getString(R.string.xosp_settings_misc_cat),
-                    getString(R.string.notification_drawer_title)
+                    //getString(R.string.notification_drawer_title)
                     };
         return titleString;
     }

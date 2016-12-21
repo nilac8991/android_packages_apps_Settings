@@ -18,4 +18,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     settings:keywords="@string/keywords_display">
 
+    <PreferenceCategory
+        android:key="screen_cat"
+        android:title="@string/xosp_misc_screen_title">
+
+        <!-- Double Tap to Wake -->
+        <SwitchPreference
+            android:key="tap_to_wake"
+            android:title="@string/tap_to_wake"
+            android:summary="@string/tap_to_wake_summary" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
