@@ -105,7 +105,7 @@ public class XOSPMain extends SettingsPreferenceFragment {
             //frags[1] = new LockScreenPersonalizations();
             frags[1] = new BlurPersonalizations();
             frags[2] = new ButtonsPersonalizations();
-            //frags[4] = new MiscPersonalizations();
+            frags[3] = new MiscPersonalizations();
             //frags[5] = new NotificationDrawerSettings();
         }
 
@@ -132,7 +132,7 @@ public class XOSPMain extends SettingsPreferenceFragment {
                     //getString(R.string.xosp_settings_lockscreen_cat),
                     getString(R.string.xosp_settings_blur_cat),
                     getString(R.string.xosp_settings_buttons_cat),
-                    //getString(R.string.xosp_settings_misc_cat),
+                    getString(R.string.xosp_settings_misc_cat),
                     //getString(R.string.notification_drawer_title)
                     };
         return titleString;

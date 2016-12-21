@@ -16,6 +16,25 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
     settings:keywords="@string/keywords_display">
+
+    <PreferenceCategory
+        android:key="screen_cat"
+        android:title="@string/xosp_misc_screen_title">
+
+        <!-- Double Tap to Wake -->
+        <SwitchPreference
+            android:key="tap_to_wake"
+            android:title="@string/tap_to_wake"
+            android:summary="@string/tap_to_wake_summary" />
+
+        <!-- Prevent accidental wake-up -->
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="proximity_on_wake"
+            android:title="@string/proximity_wake_title"
+            android:summary="@string/proximity_wake_summary"
+            cm:requiresConfig="@*cyanogenmod.platform:bool/config_proximityCheckOnWake" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
