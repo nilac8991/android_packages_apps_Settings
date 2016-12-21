@@ -61,6 +61,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private static final String KEY_NAVIGATION_BAR         = "navigation_bar";
     private static final String KEY_XOSP_NAVBAR_SWITCH     = "xosp_navbar_switch";
     private static final String KEY_BUTTON_BRIGHTNESS      = "button_brightness";
+    private static final String KEY_DT2S_NAVBAR            = "double_tap_sleep_navbar";
 
     private static final String KEY_HOME_LONG_PRESS        = "home_key_long_press";
     private static final String KEY_HOME_DOUBLE_TAP        = "home_key_double_tap";
@@ -106,6 +107,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private SwitchPreference mNavigationBar;
     private SwitchPreference mNavBarSwitch;
     private SwitchPreference mButtonBrightness;
+    private SwitchPreference mDT2SNavBarPreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,6 +137,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         }
 
         mNavBarSwitch = (SwitchPreference) findPreference(KEY_XOSP_NAVBAR_SWITCH);
+
+        mDT2SNavBarPreference = (SwitchPreference) findPreference(KEY_DT2S_NAVBAR);
 
         /* Button Brightness */
         mButtonBrightness = (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
@@ -301,6 +305,13 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
             doSystemUIReboot();
         }
 
+        if (preference != null && preference == mDT2SNavBarPreference) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_NAVBAR, enabled ? 1:0);
+            return true;
+        }
+
         return false;
     }
 
@@ -346,6 +357,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
             return Settings.System.XOSP_NAVBAR_SWITCH;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
+        } else if (preference == mButtonBrightness) {
+            return Settings.System.DOUBLE_TAP_SLEEP_NAVBAR;
         } else if (preference == mHomeLongPressAction) {
             return Settings.System.KEY_HOME_LONG_PRESS_ACTION;
         } else if (preference == mHomeDoubleTapAction) {
@@ -400,6 +413,11 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         if (mNavBarSwitch != null) {
             mNavBarSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                Settings.System.XOSP_NAVBAR_SWITCH, 0) == 1));
+        }
+
+        if(mDT2SNavBarPreference != null){
+            mDT2SNavBarPreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.DOUBLE_TAP_SLEEP_NAVBAR, 0) == 1));
         }
 
         if (mButtonBrightness != null) {
