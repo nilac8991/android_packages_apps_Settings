@@ -20,8 +20,8 @@
     <string name="xosp_release">XOSP Release</string>
 
     <!-- About phone screen, XOSP Mod version -->
-    <string name="mod_version">Mod Version</string>
-    <string name="mod_version_default">Unknown</string>
+    <string name="mod_version" translatable="false">Mod Version</string>
+    <string name="mod_version_default" translatable="false">Unknown</string>
 
     <!-- Device info Settings -->
     <string name="device_info_xosp_category">XOSP Informations</string>

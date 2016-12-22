@@ -37,7 +37,6 @@
   <string name="root_access_all">برنامه‌ها و ای‌دی‌بی</string>
   <!-- Preference link for root appops -->
   <!-- About phone screen, CyanogenMod version -->
-  <string name="mod_version">نسخه سایانوژن‌مود</string>
   <string name="mod_version_default">ناشناخته</string>
   <!-- About phone screen, Device model -->
   <string name="device_model">مدل دستگاه</string>
