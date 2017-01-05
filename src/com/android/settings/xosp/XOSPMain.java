@@ -139,6 +139,6 @@ public class XOSPMain extends SettingsPreferenceFragment {
     }
     
     protected int getMetricsCategory(){
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
 }

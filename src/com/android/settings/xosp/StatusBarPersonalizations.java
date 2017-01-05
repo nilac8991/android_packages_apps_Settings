@@ -256,7 +256,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
     
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
     
 }

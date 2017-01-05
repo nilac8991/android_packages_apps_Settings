@@ -157,6 +157,6 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
     }
     
     protected int getMetricsCategory(){
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
 }

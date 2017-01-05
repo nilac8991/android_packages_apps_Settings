@@ -104,7 +104,7 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
 
     @Override

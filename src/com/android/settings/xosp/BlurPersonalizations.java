@@ -153,7 +153,7 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
 
     @Override
