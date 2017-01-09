@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015 The XOSP Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- XOSP Revision -->
+    <string name="xosp_revision">Revisione XOSP</string>
+
+    <!-- XOSP Release -->
+    <string name="xosp_release">Uscita XOSP</string>
+
+    <!-- Device info Settings -->
+    <string name="device_info_xosp_category">Informazioni XOSP</string>
+    <string name="device_info_device_category">Informazioni dispositivo</string>
+    <string name="device_info_android_category">Informazioni OS</string>
+    <string name="device_info_other_category">Altre informazioni</string>
+
+    <!-- XOSP extra settings -->
+    <string name="xosp_settings_header">Mondo XOSP</string>
+    <string name="xosp_settings_main_title">Impostazioni XOSP</string>
+    <string name="xosp_setting_equalizer_title">Equalizzatore</string>
+    <string name="xosp_setting_changelog_title">ChangeLOG</string>
+    <string name="xosp_settings_statusbar_cat">Barra di stato</string>
+    <string name="xosp_settings_buttons_cat">Pulsanti</string>
+    <string name="xosp_settings_misc_cat">Varie</string>
+    <string name="xosp_settings_lockscreen_cat">Schermata di blocco</string>
+    <string name="xosp_settings_blur_cat">Sfumatura</string>
+    <string name="notification_drawer_title">Notifica Drawer</string>
+    <string name="header_cat">Intestazione notifica</string>
+
+    <!-- XOSP Misc category -->
+    <string name="xosp_misc_screen_title">Schermo</string>
+    
+    <!-- XOSP External activities -->
+    <string name="xosp_battery_adviser_activity">Sony Battery Adviser</string>
+    <string name="xosp_delta_activity">XOSPDelta</string>
+    <string name="xosp_changelog_activity">XOSPChangeLOG</string>
+    <string name="xosp_equalizer_activity">Equalizzatore</string>
+    
+    
+    <!-- XOSP Equalizer Infos -->
+    <string name="equalizer_question_one_title">Perché non di più su ViPER?</string>
+    <string name="equalizer_question_one_summary">Volevo qualcosa di diverso questa volta per la ROM, anche se so che Viper è il migliore di tutti.</string>
+    <string name="equalizer_question_two_title">Come posso usarlo?</string>
+    <string name="equalizer_question_two_summary">È possibile utilizzare l\'equalizzatore nelle applicazioni di supporto esterni, così come per esempio la musica e Spotify sono supportati, ma anche altri di sicuro.</string>
+    <string name="equalizer_question_three_title">Posso usare ViPER allo stesso tempo?</string>
+    <string name="equalizer_question_three_summary">Certo che puoi! È possibile utilizzare ViPER ed equalizzatore XOSP allo stesso tempo per un\'esperienza audio ancora migliore!</string>
+    <string name="equalizer_question_four_title">Problemi con il profilo personalizzato?</string>
+    <string name="equalizer_question_four_summary">Sì lo so, è un problema visivo nell\'app, ma cercherò di risolvere il problema appena possibile</string>
+    <string name="equalizer_question_five_title">Chi ha detto di tutto questi?</string>
+    <string name="equalizer_question_five_summary">Io, lo sviluppatore (nilac)</string>    
+
+    <!-- XOSP NavBar Switch -->
+    <string name ="xosp_navbar_switch_title">Interruttore XOSP NavBar</string>
+    <string name ="xosp_navbar_switch_summary">Cambiare le icone della barra di navigazione a quelle vecchie da MarshMallow</string>
+
+    <!-- XOSP Blur personalizations -->
+	<string name="blurred_status_bar_expanded_enabled_pref">Sfocatura sfondo barra di stato</string>
+    <string name="blurred_status_bar_expanded_enabled_pref_summary">Sfoca lo sfondo quando si tira giù la barra di stato</string>
+    <string name="translucent_notifications_pref">Notifiche semitrasparenti</string>
+    <string name="translucent_notifications_pref_summary">Imposta lo sfondo della notifica semitrasparente</string>
+   	<string name="translucent_quick_settings_pref">Sfocatura impostazioni rapide</string>
+    <string name="translucent_quick_settings_pref_summary">Rendi trasparente lo sfondo delle impostazioni rapide</string>
+    <string name="transluency_level_universal">Livello di trasparenza</string>
+    <string name="blurred_recent_app_enabled_pref">Applicazioni recenti sfocate</string>
+    <string name="blurred_recent_app_enabled_pref_summary">Sfoca lo sfondo delle applicazioni recenti</string>
+
+    <string name="blur_light_color">Filtro colore immagine chiara</string>
+    <string name="blur_dark_color">Filtro colore immagine scura</string>
+    <string name="blur_mixed_color">Filtro colore immagine mista</string>
+
+
+    <string name="blur_notice">Info sulla funzione di sfocatura...</string>
+    <string name="blur_notice_summary">Le personalizzazioni di sfocatura sono disabilitate quando è visualizzata la tastiera!</string>
+    <string name="blur_colors_notice">Cosa fanno questi colori?</string>
+    <string name="blur_colors_notice_summary">Questi colori sono la tinta dei colori di sfondo della sfocatura. Anziché il normale grigio, è ora possibile scegliere il colore che più preferisci. \n Ci sono 3 filtri colore: Uno usato per sfondi chiari, uno usato per sfondi scuri e uno usato per sfondi misti. \n Ma come lavorano questi colori? \n Semplice, come il titolo dice, il filtro chiaro viene usato sugli sfondi più chiari, il filtro scuro viene usato sugli sfondi più scuri e il filtro misto viene usato nelle situazioni in cui lo sfondo non è ne troppo chiaro e ne troppo scuro. \n Questi colori sono usati sia nella barra di stato che nel pannello delle applicazioni recenti</string>
+
+    <string name="blur_expstatus_cat">Barra di stato estesa</string>
+    <string name="blur_notifications_cat">Notifiche</string>
+    <string name="blur_qs_cat">Impostazioni rapide</string>
+    <string name="blur_recents_cat">Applicazioni recenti</string>  
+    <string name="blur_colors_cat">Filtri colore sfocatura</string>
+    <string name="blur_notices_cat">Avvisi</string>
+
+    <string name="blurred_scale">Scala sfocatura</string>
+    <string name="blurred_scale_summary">Qualità di sfocatura immagine</string>
+
+    <string name="blurred_radius">Raggio sfocatura</string>
+    <string name="blurred_radius_summary">Quantità di sfocatura</string>
+
+    <string name="blur_cat_notice">Avviso</string>
+    <string name="blur_cat_notice_summary">Le personalizzazioni di sfocatura sono disabilitate quando è visualizzata la tastiera! Solo le notifiche traslucide sono abilitate!</string>
+
+    <!-- XOSPApps -->
+    <string name="xospapps_title">Stato applicazioni XOSP</string>
+    <string name="xospapps_default_string">Non installate</string>
+
+
+    <!-- Color picker -->
+    <string name="color_picker_fragment_title">Selettore del colore</string>
+    <string name="apply_color_title">Applica colore</string>
+    <string name="edit_hex_title">Valore esadecimale</string>
+    <string name="palette_title">Altri</string>
+    <string name="palette_material_title">Material</string>
+    <string name="palette_rgb_title">RGB</string>
+    <string name="reset_color_title">Ripristina</string>
+    <string name="reset_android_title">Predefinito di Android</string>
+    <string name="reset_title">Predefinito di Resurrection</string>
+    <string name="reset_theme_default_title">Tema predefinito</string>
+    <string name="favorites_title">Preferiti</string>
+    <string name="hide_favorites_title">Nascondi preferiti</string>
+    <string name="show_favorites_title">Mostra preferiti</string>
+    <string name="hide_help_title">Nascondi aiuto</string>
+    <string name="show_help_title">Mostra aiuto</string>
+    <string name="empty_title">Vuoto</string>
+
+    <!-- Help screen -->
+    <string name="color_picker_help_screen_title">Aiuto selettore del colore</string>
+    <string name="color_picker_help_ab_title">Barra delle azioni:</string>
+    <string name="color_picker_help_ab_back_title">Pulsante indietro:</string>
+    <string name="color_picker_help_ab_back_summary">Chiudi il selettore del colore senza applicare il nuovo colore, (Annulla). \nQuesto ha lo stesso effetto premendo il pulsante indietro sulla barra di navigazione.</string>
+    <string name="color_picker_help_ab_name_title">Titolo:</string>
+    <string name="color_picker_help_ab_name_summary">Mostra solo il titolo, nessuna funzione aggiuntiva</string>
+    <string name="color_picker_help_ab_color_apply_title">Anteprima del colore e applicalo:</string>
+    <string name="color_picker_help_ab_color_apply_summary">L\'anteprima del colore è sempre visibile. \nSe il nuovo colore non è uguale a quello vecchio, l\'anteprima del colore sarà ampliata, per consentire di applicare il nuovo colore.</string>
+    <string name="color_picker_help_ab_hex_title">Valore esadecimale:</string>
+    <string name="color_picker_help_ab_hex_summary">Consente di visualizzare i valori esadecimali. \nI valori devono essere in formato esadecimale: \n \'#aarrggbb\' (\'alfa\' (trasparenza), \'rosso\', \'verde\' e \'blu\'). \nIl pulsante indietro chiude il campo di immissione senza impostare il valore esadecimale. \nIl pulsante applica imposta il valore esadecimale come nuovo colore senza applicare il nuovo colore.</string>
+    <string name="color_picker_help_ab_menu_title">Pulsante menù:</string>
+    <string name="color_picker_help_ab_menu_reset_title">Ripristina:</string>
+    <string name="color_picker_help_ab_menu_reset_summary">Ripristina il nuovo colore a quello predefinito di Android, Resurrection Remix o relativo al colore del tema senza applicare il nuovo colore.</string>
+    <string name="color_picker_help_ab_menu_favorites_title">Mostra/nascondi preferiti:</string>
+    <string name="color_picker_help_ab_menu_favorites_summary">Mostra/nascondi i preferiti. \nNascondere i preferiti non ripristinerà i colori.</string>
+    <string name="color_picker_help_ab_menu_help_title">Mostra/nascondi aiuto:</string>
+    <string name="color_picker_help_ab_menu_help_summary">Mostra/nascondi questa schermata di aiuto.</string>
+    <string name="color_picker_help_colors_title">Colori:</string>
+    <string name="color_picker_help_picker_view_title">Colore pannello:</string>
+    <string name="color_picker_help_picker_view_summary">Scegli un colore per impostarlo senza applicarlo. \nIl colore può essere modificato utilizzando il dispositivo di scorrimento sul lato destro</string>
+    <string name="color_picker_help_color_buttons_title">Colore pulsanti:</string>
+    <string name="color_picker_help_favorites_title">Preferiti:</string>
+    <string name="color_picker_help_favorites_summary">I preferiti sono vuoti come predefinito. \nIl nuovo colore può essere salvato come preferito in qualsiasi momento per mezzo di una pressione prolungata (uno slot vuoto sarà sostituito da un nuovo colore preferito). \nUn tocco imposta il colore preferito come nuovo colore, senza applicare il nuovo colore.</string>
+    <string name="color_picker_help_palette_title">Colori: \n(Resurrection Remix, Material e RGB)</string>
+    <string name="color_picker_help_palette_summary">Tutti i colori delle palette hanno un valore fisso. \nUn click imposta il colore preferito come nuovo colore, senza applicare il nuovo colore.</string>
+    <string name="color_picker_help_do_not_show_title">Non mostrare di nuovo</string>
+    <string name="color_picker_help_button_ok_title">OK</string>
+    <!-- Color picker end -->
+
+    <!-- Double tap to sleep on lockscreen -->
+    <string name="double_tap_sleep_anywhere_title">Doppio tocco per sospensione</string>
+    <string name="double_tap_sleep_anywhere_summary">Doppio tocco sulla schermata di blocco per sospendere il dispositivo</string>
+
+    <!-- Double Tap Navbar to Sleep -->
+    <string name="double_tap_sleep_nav_bar_title">Doppio tocco per sospensione</string>
+    <string name="double_tap_sleep_nav_bar_summary">Doppio tocco sulla barra di navigazione per sospendere il dispositivo</string>
+
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Traffico di rete</string>
+    <string name="show_network_traffic_state">Indicatore traffico di rete nella barra di stato</string>
+    <string name="show_network_traffic_unit">Unità di visualizzazione</string>
+    <string name="show_network_traffic_frequency">Intervallo aggiornamento</string>
+    <string name="show_network_traffic_disable">Disabilitato</string>
+    <string name="show_network_traffic_up">In uscita</string>
+    <string name="show_network_traffic_down">In entrata</string>
+    <string name="show_network_traffic_all">In uscita e in entrata</string>
+    <string name="show_network_traffic_bit">Bit al secondo</string>
+    <string name="show_network_traffic_byte">Byte al secondo</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide">Nascondi automaticamente</string>
+    <string name="network_traffic_autohide_summary">Nascondi il traffico di rete quando non c\'è attività</string>
+    <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
+
+</resources>
