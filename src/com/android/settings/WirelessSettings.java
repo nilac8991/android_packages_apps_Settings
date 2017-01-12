@@ -26,8 +26,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
@@ -98,8 +96,6 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
     private PackageManager mPm;
     private UserManager mUm;
 
-    boolean mIsNetworkSettingsAvailable = false;
-
     private static final int MANAGE_MOBILE_PLAN_DIALOG_ID = 1;
     private static final String SAVED_MANAGE_MOBILE_PLAN_MSG = "mManageMobilePlanMessage";
 
@@ -136,25 +132,11 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
             }
             startActivity(intent);
             return true;
-        } else if (preference == findPreference(KEY_MOBILE_NETWORK_SETTINGS)
-                && mIsNetworkSettingsAvailable) {
-            onMobileNetworkSettingsClick();
-            return true;
         }
         // Let the intents be launched by the Preference manager
         return super.onPreferenceTreeClick(preference);
     }
 
-    public void onMobileNetworkSettingsClick() {
-        log("onMobileNetworkSettingsClick:");
-        final Intent intent = new Intent(Intent.ACTION_MAIN);
-        log("Qcom Proprietary MobileNetworkSettings Enabled");
-        // prepare intent to start MobileNetworkSettings activity from
-        // Qcom Proprietary
-        intent.setComponent(new ComponentName("com.qualcomm.qti.networksetting",
-               "com.qualcomm.qti.networksetting.MobileNetworkSettings"));
-        startActivity(intent);
-    }
     private String mManageMobilePlanMessage;
     public void onManageMobilePlanClick() {
         log("onManageMobilePlanClick:");
@@ -343,8 +325,6 @@ public class WirelessSettings extends SettingsPreferenceFragment implements Inde
                         UserManager.DISALLOW_CONFIG_MOBILE_NETWORKS, UserHandle.myUserId())) {
             removePreference(KEY_MOBILE_NETWORK_SETTINGS);
             removePreference(KEY_MANAGE_MOBILE_PLAN);
-        } else {
-            mIsNetworkSettingsAvailable = Utils.isNetworkSettingsApkAvailable(getActivity());
         }
         // Remove Mobile Network Settings and Manage Mobile Plan
         // if config_show_mobile_plan sets false.
