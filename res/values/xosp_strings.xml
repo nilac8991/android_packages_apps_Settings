@@ -98,7 +98,7 @@
     <string name="blur_notices_cat">Notices</string>
 
     <string name="blurred_scale">Blur Scale</string>
-    <string name="blurred_scale_summary">Quailty of blur image</string>
+    <string name="blurred_scale_summary">Quality of blur image</string>
 
     <string name="blurred_radius">Blur Radius</string>
     <string name="blurred_radius_summary">Amount of blur</string>
