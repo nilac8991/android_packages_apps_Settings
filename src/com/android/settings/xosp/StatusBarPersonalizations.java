@@ -162,6 +162,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
         if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
                 mStatusBarClock.setEntries(getActivity().getResources().getStringArray(
                         R.array.status_bar_clock_position_entries_rtl));
+                mQuickPulldown.setEntries(R.array.status_bar_quick_qs_pulldown_entries_rtl);
         }
     }
 
