@@ -103,7 +103,8 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
             mStatusBarAmPm.setSummary(R.string.status_bar_am_pm_info);
         }
 
-        updatePulldownSummary(mQuickPulldown.getIntValue(0));
+        mQuickPulldown.setOnPreferenceChangeListener(this);
+        updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
         
         mNetTrafficState = (ListPreference) prefScreen.findPreference(NETWORK_TRAFFIC_STATE);
         mNetTrafficUnit = (ListPreference) prefScreen.findPreference(NETWORK_TRAFFIC_UNIT);
@@ -202,6 +203,8 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, threshold * 1);
             return true;
         }
+        if (preference == mQuickPulldown) {
+            updateQuickPulldownSummary(value);
 
         return true;
     }
@@ -240,19 +243,11 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
         return (intNumber & intMask) == intMask;
     }
 
-    private void updatePulldownSummary(int value) {
-        Resources res = getResources();
-
-        if (value == 0) {
-            // quick pulldown deactivated
-            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_off));
-        } else {
-            String direction = res.getString(value == 2
-                    ? R.string.status_bar_quick_qs_pulldown_summary_left
-                    : R.string.status_bar_quick_qs_pulldown_summary_right);
-            mQuickPulldown.setSummary(res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
-        }
-    }
+    private void updateQuickPulldownSummary(int value) {
+        mQuickPulldown.setSummary(value == 0
+                ? R.string.status_bar_quick_qs_pulldown_off
+                : R.string.status_bar_quick_qs_pulldown_summary);
+	}
     
     @Override
     protected int getMetricsCategory() {
