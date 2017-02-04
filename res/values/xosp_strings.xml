@@ -123,9 +123,6 @@
     <string name="xosp_misc_screen_title">Screen</string>
     
     <!-- XOSP External activities -->
-    <string name="xosp_battery_adviser_activity">Sony Battery Adviser</string>
-    <string name="xosp_delta_activity">XOSPDelta</string>
-    <string name="xosp_changelog_activity">XOSPChangeLOG</string>
     <string name="xosp_equalizer_activity">Equalizer</string>
     
     

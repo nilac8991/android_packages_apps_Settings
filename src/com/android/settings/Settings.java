@@ -156,10 +156,7 @@ public class Settings extends SettingsActivity {
     public static class WifiAPITestActivity extends SettingsActivity { /* empty */ }
     public static class WifiInfoActivity extends SettingsActivity { /* empty */ }
     public static class XOSPWorld extends SettingsActivity { /* empty */ }
-    public static class BatterAdviserActivity extends SettingsActivity { /* empty */ }
-    public static class XOSPDeltaActivity extends SettingsActivity { /* empty */ }
     public static class XOSPEqualizerInfo extends SettingsActivity { /* empty */ }
-    //public static class XCActivity extends SettingsActivity { /* empty */ }
 
     // Categories.
     public static class WirelessSettings extends SettingsActivity { /* empty */ }
