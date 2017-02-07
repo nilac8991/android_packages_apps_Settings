@@ -95,11 +95,6 @@
                 android:key="lift_to_wake"
                 android:title="@string/lift_to_wake_title" />
 
-        <SwitchPreference
-                android:key="doze"
-                android:title="@string/doze_title"
-                android:summary="@string/doze_summary" />
-
         <PreferenceScreen
                 android:key="font_size"
                 android:title="@string/title_font_size"
@@ -127,4 +122,21 @@
                 android:summary="%s"
                 android:title="@string/display_vr_pref_title" />
 
+        <PreferenceCategory
+            android:key="category_doze_options"
+            android:title="@string/display_category_doze_options_title" >
+
+            <SwitchPreference
+                    android:key="doze"
+                    android:title="@string/doze_title"
+                    android:summary="@string/doze_summary"
+                    android:persistent="false" />
+
+            <PreferenceScreen
+                android:fragment="com.android.settings.xosp.DozeSettingsFragment"
+                android:key="advanced_doze_options"
+                android:title="@string/doze_settings_title"
+                android:dependency="doze" />
+
+         </PreferenceCategory>
 </PreferenceScreen>
