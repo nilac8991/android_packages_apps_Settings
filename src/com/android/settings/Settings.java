@@ -157,6 +157,7 @@ public class Settings extends SettingsActivity {
     public static class WifiInfoActivity extends SettingsActivity { /* empty */ }
     public static class XOSPWorld extends SettingsActivity { /* empty */ }
     public static class XOSPEqualizerInfo extends SettingsActivity { /* empty */ }
+    public static class About extends SettingsActivity { /* empty */ }
 
     // Categories.
     public static class WirelessSettings extends SettingsActivity { /* empty */ }
@@ -165,4 +166,5 @@ public class Settings extends SettingsActivity {
     public static class SystemSettings extends SettingsActivity { /* empty */ }
     public static class XOSPMain extends SettingsActivity { /* empty */ }
     public static class XOSPEqualizerInfoActivity extends SettingsActivity { /* empty */ }
+    public static class AboutActivity extends SettingsActivity { /* empty */ }
 }
