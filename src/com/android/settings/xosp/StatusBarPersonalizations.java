@@ -205,6 +205,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
         }
         if (preference == mQuickPulldown) {
             updateQuickPulldownSummary(value);
+        }
 
         return true;
     }
