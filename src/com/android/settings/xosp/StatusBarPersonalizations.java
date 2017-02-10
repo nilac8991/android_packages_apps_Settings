@@ -204,6 +204,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
             return true;
         }
         if (preference == mQuickPulldown) {
+        	int value = Integer.parseInt((String) newValue);
             updateQuickPulldownSummary(value);
         }
 
