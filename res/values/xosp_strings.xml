@@ -82,5 +82,27 @@
     <string name="security_settings_fingerprint_sensor_location_left">left side</string>
     <string name="security_settings_fingerprint_sensor_location_right">right side</string>
 
+    <!-- Wi-Fi region code -->
+    <string name="wifi_setting_countrycode_title">Wi\u2011Fi region code</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+    <string name="wifi_setting_countrycode_summary">Specify the region code for Wi\u2011Fi</string>
+    <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+    <string name="wifi_setting_countrycode_error">There was a problem setting the region code.</string>
 
-</resources>
+    <!-- Zen mode allowed event setting summary items -->
+    <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+    <string name="zen_mode_summary_reminders">reminders</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_events">events</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_all_callers">all callers</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_selected_callers">selected callers</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_repeat_callers">repeat callers</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_all_messages">all messages</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_selected_messages">selected messages</string>
+  
+  </resources>
