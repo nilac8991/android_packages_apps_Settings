@@ -140,7 +140,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
 
-        if (isLiftToWakeAvailable(activity)) {
+        if (!NightDisplayController.isAvailable(activity)) {
+                removePreference(KEY_NIGHT_DISPLAY);
+        }
+        
             mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
             if (mLiftToWakePreference != null) {
                 if (isLiftToWakeAvailable(activity)) {
