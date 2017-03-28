@@ -114,22 +114,6 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     public void setCategoriesAndSuggestions(List<DashboardCategory> categories,
             List<Tile> suggestions) {
         mSuggestions = suggestions;
-        recountItems();
-    }
-
-    public Tile getTile(ComponentName component) {
-        for (int i = 0; i < mCategories.size(); i++) {
-            for (int j = 0; j < mCategories.get(i).tiles.size(); j++) {
-                Tile tile = mCategories.get(i).tiles.get(j);
-                if (component.equals(tile.intent.getComponent())) {
-                    return tile;
-                }
-            }
-        }
-        return null;
-    }
-
-    public void setCategories(List<DashboardCategory> categories) {
         mCategories = categories;
 
         // TODO: Better place for tinting?
