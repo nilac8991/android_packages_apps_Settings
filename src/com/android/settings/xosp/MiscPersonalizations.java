@@ -90,7 +90,6 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
     
     private static final String KEY_TAP_TO_WAKE = "tap_to_wake";
-    private static final String KEY_PROXIMITY_WAKE = "proximity_on_wake";
     
     private SwitchPreference mTapToWakePreference;
     
@@ -107,13 +106,6 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
             mTapToWakePreference.setOnPreferenceChangeListener(this);
         } else {
             removePreference(KEY_TAP_TO_WAKE);
-        }
-
-        boolean proximityCheckOnWait = getResources().getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
-        if (!proximityCheckOnWait) {
-            removePreference(KEY_PROXIMITY_WAKE);
-            Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
         }
     }
     
