@@ -85,7 +85,6 @@ import com.android.settings.R;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.settings.Utils;
-import cyanogenmod.providers.CMSettings;
 
 public class MiscPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{

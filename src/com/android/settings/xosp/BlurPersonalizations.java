@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import cyanogenmod.providers.CMSettings;
 //import com.android.settings.xosp.SeekBarPreference;
 
 public class BlurPersonalizations extends SettingsPreferenceFragment

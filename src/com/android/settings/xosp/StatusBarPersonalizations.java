@@ -52,8 +52,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import cyanogenmod.providers.CMSettings;
-
 public class StatusBarPersonalizations extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener{
         

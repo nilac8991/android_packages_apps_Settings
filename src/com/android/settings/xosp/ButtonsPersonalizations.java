@@ -47,12 +47,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-
-import cyanogenmod.hardware.CMHardwareManager;
-import cyanogenmod.providers.CMSettings;
-
-import org.cyanogenmod.internal.logging.CMMetricsLogger;
-import org.cyanogenmod.internal.util.ScreenType;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import java.util.List;
 
@@ -78,7 +73,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
 
     @Override
     protected int getMetricsCategory() {
-        return CMMetricsLogger.BUTTON_SETTINGS;
+        return MetricsEvent.XOSP;
     }
 
     @Override

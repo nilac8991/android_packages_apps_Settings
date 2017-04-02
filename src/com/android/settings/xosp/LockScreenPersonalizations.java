@@ -91,7 +91,6 @@ import com.android.settings.R;
 import java.util.ArrayList;
 import java.util.List;
 import com.android.settings.Utils;
-import cyanogenmod.providers.CMSettings;
 
 public class LockScreenPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
