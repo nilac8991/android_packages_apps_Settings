@@ -101,11 +101,12 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = activity.getContentResolver();
         
-        mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
-            if (mTapToWakePreference != null) {
-                if (isTapToWakeAvailable(getResources()))
-                    mTapToWakePreference.setOnPreferenceChangeListener(this);
-            }
+        if (isTapToWakeAvailable(getResources())) {
+            mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
+            mTapToWakePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_TAP_TO_WAKE);
+        }
     }
     
     private static boolean isTapToWakeAvailable(Resources res) {
