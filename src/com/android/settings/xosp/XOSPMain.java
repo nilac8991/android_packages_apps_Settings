@@ -129,7 +129,7 @@ public class XOSPMain extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                     getString(R.string.xosp_settings_statusbar_cat),
-                    getString(R.string.xosp_settings_lockscreen_cat),
+                    //getString(R.string.xosp_settings_lockscreen_cat),
                     getString(R.string.xosp_settings_blur_cat),
                     getString(R.string.xosp_settings_buttons_cat),
                     getString(R.string.xosp_settings_misc_cat),
