@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod project
+ * Copyright (C) 2017 Xperia Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,15 +52,21 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         OnPreferenceChangeListener {
 
     private static final String KEY_NAVIGATION_BAR = "navigation_bar";
+    private static final String EMPTY_STRING = "";
 
+    private Handler mHandler;
 
     private SwitchPreference mNavigationBar;
+
+    private int mDeviceHardwareKeys;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.xosp_buttons_cat);
+
+        mHandler = new Handler();
 
         final Resources res = getActivity().getResources();
         final ContentResolver resolver = getActivity().getContentResolver();
@@ -79,12 +85,6 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
                 removePreference(KEY_NAVIGATION_BAR);
             }
         }
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 
     @Override
@@ -112,6 +112,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         } else if (preference == mNavigationBar) {
             return Settings.System.NAVIGATION_BAR_ENABLED;
         }
+
+        return EMPTY_STRING;
     }
 
     @Override
