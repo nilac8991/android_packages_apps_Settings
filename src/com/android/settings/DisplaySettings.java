@@ -41,7 +41,6 @@ import android.support.v7.preference.DropDownPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v7.preference.PreferenceCategory;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -77,7 +76,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     /** If there is no setting in the provider, use this. */
     private static final int FALLBACK_SCREEN_TIMEOUT_VALUE = 30000;
 
-    private static final String KEY_CATEGORY_DISPLAY = "display";
     private static final String KEY_SCREEN_TIMEOUT = "screen_timeout";
     private static final String KEY_FONT_SIZE = "font_size";
     private static final String KEY_SCREEN_SAVER = "screensaver";
@@ -115,8 +113,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.display_settings);
 
-        PreferenceCategory displayPrefs = (PreferenceCategory)
-                findPreference(KEY_CATEGORY_DISPLAY);
+        mEditor = mSharedPreferences.edit();
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
         if (mScreenSaverPreference != null
@@ -146,102 +143,92 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_LIFT_TO_WAKE);
         }
 
-        if (displayPrefs != null) {
+        if (isDozeAvailable(activity)) {
             mDozePreference = (SwitchPreference) findPreference(KEY_DOZE);
-            if (mDozePreference != null) {
-                if (isDozeAvailable(activity)) {
-                    mDozePreference.setOnPreferenceChangeListener(this);
-                } else {
-                    displayPrefs.removePreference(mDozePreference);
-                }
-            }
+            mDozePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_DOZE);
+        }
 
+        if (isCameraGestureAvailable(getResources())) {
             mCameraGesturePreference = (SwitchPreference) findPreference(KEY_CAMERA_GESTURE);
-            if (mCameraGesturePreference != null) {
-                if (isCameraGestureAvailable(getResources())) {
-                    mCameraGesturePreference.setOnPreferenceChangeListener(this);
-                } else {
-                    displayPrefs.removePreference(mCameraGesturePreference);
-                }
-            }
+            mCameraGesturePreference.setOnPreferenceChangeListener(this);
+        } else {
+            removePreference(KEY_CAMERA_GESTURE);
+        }
 
+        if (RotationPolicy.isRotationLockToggleVisible(activity)) {
             DropDownPreference rotatePreference =
                     (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
-            if (rotatePreference != null) {
-                if (RotationPolicy.isRotationLockToggleVisible(activity)) {
-                    int rotateLockedResourceId;
-                    // The following block sets the string used when rotation is locked.
-                    // If the device locks specifically to portrait or landscape (rather than current
-                    // rotation), then we use a different string to include this information.
-                    if (allowAllRotations(activity)) {
-                        rotateLockedResourceId = R.string.display_auto_rotate_stay_in_current;
-                    } else {
-                        if (RotationPolicy.getRotationLockOrientation(activity)
-                                == Configuration.ORIENTATION_PORTRAIT) {
-                            rotateLockedResourceId =
-                                    R.string.display_auto_rotate_stay_in_portrait;
-                        } else {
-                            rotateLockedResourceId =
-                                    R.string.display_auto_rotate_stay_in_landscape;
-                        }
-                    }
-                    rotatePreference.setEntries(new CharSequence[] {
-                            activity.getString(R.string.display_auto_rotate_rotate),
-                            activity.getString(rotateLockedResourceId),
-                    });
-                    rotatePreference.setEntryValues(new CharSequence[] { "0", "1" });
-                    rotatePreference.setValueIndex(RotationPolicy.isRotationLocked(activity) ?
-                            1 : 0);
-                    rotatePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        @Override
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            final boolean locked = Integer.parseInt((String) newValue) != 0;
-                            MetricsLogger.action(getActivity(), MetricsEvent.ACTION_ROTATION_LOCK,
-                                    locked);
-                            RotationPolicy.setRotationLock(activity, locked);
-                            return true;
-                        }
-                    });
+            int rotateLockedResourceId;
+            // The following block sets the string used when rotation is locked.
+            // If the device locks specifically to portrait or landscape (rather than current
+            // rotation), then we use a different string to include this information.
+            if (allowAllRotations(activity)) {
+                rotateLockedResourceId = R.string.display_auto_rotate_stay_in_current;
+            } else {
+                if (RotationPolicy.getRotationLockOrientation(activity)
+                        == Configuration.ORIENTATION_PORTRAIT) {
+                    rotateLockedResourceId =
+                            R.string.display_auto_rotate_stay_in_portrait;
                 } else {
-                    displayPrefs.removePreference(rotatePreference);
+                    rotateLockedResourceId =
+                            R.string.display_auto_rotate_stay_in_landscape;
                 }
             }
+            rotatePreference.setEntries(new CharSequence[] {
+                    activity.getString(R.string.display_auto_rotate_rotate),
+                    activity.getString(rotateLockedResourceId),
+            });
+            rotatePreference.setEntryValues(new CharSequence[] { "0", "1" });
+            rotatePreference.setValueIndex(RotationPolicy.isRotationLocked(activity) ?
+                    1 : 0);
+            rotatePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    final boolean locked = Integer.parseInt((String) newValue) != 0;
+                    MetricsLogger.action(getActivity(), MetricsEvent.ACTION_ROTATION_LOCK,
+                            locked);
+                    RotationPolicy.setRotationLock(activity, locked);
+                    return true;
+                }
+            });
+        } else {
+            removePreference(KEY_AUTO_ROTATE);
+        }
 
+        if (isVrDisplayModeAvailable(activity)) {
             DropDownPreference vrDisplayPref =
                     (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
-            if (vrDisplayPref != null) {
-                if (isVrDisplayModeAvailable(activity)) {
-                    vrDisplayPref.setEntries(new CharSequence[] {
-                            activity.getString(R.string.display_vr_pref_low_persistence),
-                            activity.getString(R.string.display_vr_pref_off),
-                    });
-                    vrDisplayPref.setEntryValues(new CharSequence[] { "0", "1" });
+            vrDisplayPref.setEntries(new CharSequence[] {
+                    activity.getString(R.string.display_vr_pref_low_persistence),
+                    activity.getString(R.string.display_vr_pref_off),
+            });
+            vrDisplayPref.setEntryValues(new CharSequence[] { "0", "1" });
 
-                    final Context c = activity;
-                    int currentUser = ActivityManager.getCurrentUser();
-                    int current = Settings.Secure.getIntForUser(c.getContentResolver(),
-                                    Settings.Secure.VR_DISPLAY_MODE,
-                                    /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
-                                    currentUser);
-                    vrDisplayPref.setValueIndex(current);
-                    vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        @Override
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            int i = Integer.parseInt((String) newValue);
-                            int u = ActivityManager.getCurrentUser();
-                            if (!Settings.Secure.putIntForUser(c.getContentResolver(),
-                                    Settings.Secure.VR_DISPLAY_MODE,
-                                    i, u)) {
-                                Log.e(TAG, "Could not change setting for " +
-                                        Settings.Secure.VR_DISPLAY_MODE);
-                            }
-                            return true;
-                        }
-                    });
-                } else {
-                    displayPrefs.removePreference(vrDisplayPref);
+            final Context c = activity;
+            int currentUser = ActivityManager.getCurrentUser();
+            int current = Settings.Secure.getIntForUser(c.getContentResolver(),
+                            Settings.Secure.VR_DISPLAY_MODE,
+                            /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
+                            currentUser);
+            vrDisplayPref.setValueIndex(current);
+            vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    int i = Integer.parseInt((String) newValue);
+                    int u = ActivityManager.getCurrentUser();
+                    if (!Settings.Secure.putIntForUser(c.getContentResolver(),
+                            Settings.Secure.VR_DISPLAY_MODE,
+                            i, u)) {
+                        Log.e(TAG, "Could not change setting for " +
+                                Settings.Secure.VR_DISPLAY_MODE);
+                    }
+                    return true;
                 }
-            }
+            });
+        } else {
+            removePreference(KEY_VR_DISPLAY_PREF);
         }
 
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
