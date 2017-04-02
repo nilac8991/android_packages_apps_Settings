@@ -112,7 +112,7 @@ public class MiscPersonalizations extends SettingsPreferenceFragment implements
         boolean proximityCheckOnWait = getResources().getBoolean(
                 com.android.internal.R.bool.config_proximityCheckOnWake);
         if (!proximityCheckOnWait) {
-            removePreference(findPreference(KEY_PROXIMITY_WAKE));
+            removePreference(KEY_PROXIMITY_WAKE);
             Settings.System.putInt(getContentResolver(), Settings.System.PROXIMITY_ON_WAKE, 1);
         }
     }
