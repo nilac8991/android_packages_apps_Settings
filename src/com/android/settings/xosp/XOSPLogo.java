@@ -47,8 +47,8 @@ public class XOSPLogo extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder rootView) {
 
-        ImageView XOSPImage = (ImageView) rootView.findViewById(R.id.xosp_logo);
-        XOSPImage.setBackgroundResource(R.drawable.xosp_logo);
+        ImageView XOSPImage = (ImageView) rootView.findViewById(R.id.xosp_banner);
+        XOSPImage.setBackgroundResource(R.drawable.xosp_banner);
         XOSPAnimation = (AnimationDrawable) XOSPImage.getBackground();
         XOSPAnimation.start();
     }

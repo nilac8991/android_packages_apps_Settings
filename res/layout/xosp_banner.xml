@@ -26,7 +26,7 @@
         android:visibility="invisible"
         />
     <ImageView
-        android:id="@+id/xosp_logo"
+        android:id="@+id/xosp_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
