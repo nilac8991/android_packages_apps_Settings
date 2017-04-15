@@ -178,4 +178,8 @@
     <string name="volbtn_music_controls_title">Playback control</string>
     <string name="volbtn_music_controls_summary">When the screen is off, long pressing the volume keys will seek music tracks</string>
 
-  </resources>
+    <!-- XOSP NavBar Switch -->
+    <string name ="xosp_navbar_switch_title">XOSP NavBar Switch </string>
+    <string name ="xosp_navbar_switch_summary">Change NavBar icons to the old ones from MarshMallow</string>
+
+</resources>

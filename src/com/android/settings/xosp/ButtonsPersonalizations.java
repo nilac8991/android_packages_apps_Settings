@@ -41,6 +41,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.util.benzo.Helpers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -278,6 +279,9 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     }
 
     private boolean handleOnPreferenceTreeClick(Preference preference) {
+        
+        ContentResolver resolver = getActivity().getContentResolver();
+        
         if (preference != null && preference == mNavigationBar) {
             mNavigationBar.setEnabled(false);
             mHandler.postDelayed(new Runnable() {
@@ -288,7 +292,20 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
             }, 1000);
             return true;
         }
+
+        if (preference != null && preference == mNavBarSwitch) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+               Settings.System.XOSP_NAVBAR_SWITCH, enabled ? 1:0); 
+
+            doSystemUIReboot();
+        }
+
         return false;
+    }
+
+    private static void doSystemUIReboot() {
+        Helpers.restartSystemUI();
     }
 
     private boolean handleOnPreferenceChange(Preference preference, Object newValue) {
@@ -326,7 +343,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         } else if (preference == mNavigationBar) {
             return Settings.System.NAVIGATION_BAR_ENABLED;
         } else if (preference == mNavBarSwitch) {
-            return Settings.System.KEY_XOSP_NAVBAR_SWITCH;
+            return Settings.System.XOSP_NAVBAR_SWITCH;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
         } else if (preference == mHomeLongPressAction) {
