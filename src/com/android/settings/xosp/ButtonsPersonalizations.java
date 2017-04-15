@@ -58,6 +58,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private static final int KEY_MASK_CAMERA = 0x20;
 
     private static final String KEY_NAVIGATION_BAR         = "navigation_bar";
+    private static final String KEY_XOSP_NAVBAR_SWITCH     = "xosp_navbar_switch";
     private static final String KEY_BUTTON_BRIGHTNESS      = "button_brightness";
 
     private static final String KEY_HOME_LONG_PRESS        = "home_key_long_press";
@@ -102,6 +103,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
     private ListPreference mCameraDoubleTapAction;
 
     private SwitchPreference mNavigationBar;
+    private SwitchPreference mNavBarSwitch;
     private SwitchPreference mButtonBrightness;
 
     @Override
@@ -109,6 +111,7 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.xosp_buttons_cat);
+        PreferenceScreen prefSet = getPreferenceScreen();
 
         mHandler = new Handler();
 
@@ -129,6 +132,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
                 removePreference(KEY_NAVIGATION_BAR);
             }
         }
+
+        mNavBarSwitch = (SwitchPreference) findPreference(KEY_XOSP_NAVBAR_SWITCH);
 
         /* Button Brightness */
         mButtonBrightness = (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
@@ -320,6 +325,8 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
             return EMPTY_STRING;
         } else if (preference == mNavigationBar) {
             return Settings.System.NAVIGATION_BAR_ENABLED;
+        } else if (preference == mNavBarSwitch) {
+            return Settings.System.KEY_XOSP_NAVBAR_SWITCH;
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
         } else if (preference == mHomeLongPressAction) {
@@ -371,6 +378,11 @@ public class ButtonsPersonalizations extends SettingsPreferenceFragment implemen
 
         if (mNavigationBar != null) {
             mNavigationBar.setChecked(navigationBarEnabled);
+        }
+
+        if (mNavBarSwitch != null) {
+            mNavBarSwitch.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+               Settings.System.XOSP_NAVBAR_SWITCH, 0) == 1));
         }
 
         if (mButtonBrightness != null) {
