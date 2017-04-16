@@ -70,14 +70,10 @@ import android.os.UserManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.preference.SwitchPreference;
-import android.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v14.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import com.android.settings.SettingsPreferenceFragment;
 import android.provider.Settings;
@@ -97,7 +93,7 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
 
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
 
-    private SeekBarPreference mBlurRadius;
+    private CustomSeekBarPreference mBlurRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -106,7 +102,7 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
         mBlurRadius.setValue(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
         mBlurRadius.setOnPreferenceChangeListener(this);
@@ -115,11 +111,6 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.APPLICATION;
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue){
-        return false;
     }
 
     @Override
