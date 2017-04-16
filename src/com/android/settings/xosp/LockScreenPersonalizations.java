@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The Xperia Open Source Project
+ * Copyright (C) 2016 The Xperia Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -91,21 +91,10 @@ import com.android.settings.Utils;
 public class LockScreenPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
 
-    private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
-
-    private CustomSeekBarPreference mBlurRadius;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.xosp_lockscreen_cat);
-        
-        ContentResolver resolver = getActivity().getContentResolver();
-
-        mBlurRadius = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
-        mBlurRadius.setValue(Settings.System.getInt(resolver,
-                Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
-        mBlurRadius.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -115,13 +104,6 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue){
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mBlurRadius) {
-            int width = ((Integer)newValue).intValue();
-            Settings.System.putInt(resolver,
-            Settings.System.LOCKSCREEN_BLUR_RADIUS, width);
-            return true;
-        }
         return false;
     }
 
