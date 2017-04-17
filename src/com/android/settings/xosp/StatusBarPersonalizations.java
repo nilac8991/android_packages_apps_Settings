@@ -110,9 +110,6 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
             mNetTrafficPeriod.setSummary(mNetTrafficPeriod.getEntry());
             mNetTrafficPeriod.setOnPreferenceChangeListener(this);
 
-            mNetTrafficAutohide.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0) == 1));
-            
             int netTrafficAutohideThreshold = Settings.System.getInt(getContentResolver(),
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 10);
             mNetTrafficAutohideThreshold.setValue(netTrafficAutohideThreshold / 1);
@@ -170,20 +167,6 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment
         }
 
         return false;
-    }
-    
-    @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-    
-        ContentResolver resolver = getActivity().getContentResolver();
-        
-        if (preference == mNetTrafficAutohide) {
-            boolean enabled = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, enabled ? 1:0);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preference);
     }
 
     private void loadResources() {
