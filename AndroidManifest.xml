@@ -216,39 +216,6 @@
 
         <activity
              android:name=".xosp.XOSPMain" />
-        
-        <!-- About XOSP -->
-        <activity android:name="Settings$AboutActivity"
-                android:label="@string/about_xosp"
-                android:icon="@drawable/ic_xosp_main"
-                android:taskAffinity="">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-            <intent-filter android:priority="3">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                android:value="com.android.settings.category.xosp" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.ProcessStatsSummary" />
-        </activity>
-        
-        <!-- Keep compatibility with old shortcuts. -->
-        <activity android:name="Settings$AboutActivity"
-                  android:label="@string/about_xosp"
-            android:taskAffinity="">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.xosp.About" />
-        </activity>
-
-        <activity
-             android:name=".xosp.About" />
 
         <!-- Equalizer -->
         <activity android:name="Settings$XOSPEqualizerInfoActivity"

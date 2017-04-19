@@ -26,6 +26,13 @@
             android:selectable="false"
             android:layout="@layout/xosp_banner" />
 
+        <!-- About XOSP -->
+        <PreferenceScreen android:key="about_xosp"
+                android:title="@string/about_xosp"
+                android:summary="@string/about_xosp_summary"
+                android:fragment="com.android.settings.xosp.About">
+        </PreferenceScreen>
+
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
                 android:title="@string/device_status"
