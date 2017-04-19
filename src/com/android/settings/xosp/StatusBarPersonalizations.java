@@ -85,7 +85,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment implem
 
         mStatusBarBattery = (ListPreference) findPreference(STATUS_BAR_BATTERY_STYLE);
         mStatusBarBatteryValue = Settings.Secure.getInt(resolver,
-                Settings.Secure.STATUS_BAR_BATTERY_STYLE, 6);
+                Settings.System.STATUS_BAR_BATTERY_STYLE, 6);
         mStatusBarBattery.setValue(Integer.toString(mStatusBarBatteryValue));
         mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
         mStatusBarBattery.setOnPreferenceChangeListener(this);
@@ -139,12 +139,6 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment implem
     }
 
     @Override
-    public boolean onPreferenceTreeClick(Preference preference) {
-        // If we didn't handle it, let preferences handle it.
-        return super.onPreferenceTreeClick(preference);
-    }
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         
         ContentResolver resolver = getActivity().getContentResolver();
@@ -155,7 +149,7 @@ public class StatusBarPersonalizations extends SettingsPreferenceFragment implem
             mStatusBarBattery.setSummary(
                     mStatusBarBattery.getEntries()[index]);
             Settings.Secure.putInt(getContentResolver(),
-                    Settings.Secure.STATUS_BAR_BATTERY_STYLE, mStatusBarBatteryValue);
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, mStatusBarBatteryValue);
             return true;
         
         } else if (preference == mNetTrafficState) {
