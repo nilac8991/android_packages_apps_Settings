@@ -91,20 +91,43 @@ import com.android.settings.Utils;
 public class LockScreenPersonalizations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
 
+    private static final String KEY_DTA_LOCK = "double_tap_sleep_anywhere";
+
+    private SwitchPreference mDT2SAnywherePreference;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.xosp_lockscreen_cat);
+        final Activity activity = getActivity();
+        addPreferencesFromResource(R.xml.xosp_misc_cat);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = activity.getContentResolver();
+
+        mDT2SAnywherePreference = (SwitchPreference) findPreference(KEY_DTA_LOCK);
+        mDT2SAnywherePreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0) == 1));
     }
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsEvent.APPLICATION;
+        return MetricsEvent.XOSP;
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue){
         return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mDT2SAnywherePreference) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, enabled ? 1:0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
