@@ -100,7 +100,6 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.xosp_lockscreen_cat);
         final Activity activity = getActivity();
-        addPreferencesFromResource(R.xml.xosp_misc_cat);
         PreferenceScreen prefSet = getPreferenceScreen();
         final ContentResolver resolver = activity.getContentResolver();
 
