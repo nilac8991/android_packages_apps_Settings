@@ -28,7 +28,6 @@
         android:key="xosp_navbar_switch"
         android:title="@string/xosp_navbar_switch_title"
         android:summary="@string/xosp_navbar_switch_summary"
-        android:dependency="navigation_bar"
         android:defaultValue="false" />
 
     <SwitchPreference
