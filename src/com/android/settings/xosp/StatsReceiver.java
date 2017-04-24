@@ -28,6 +28,8 @@ public class StatsReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Intent startServiceIntent = null;
 
+        startServiceIntent = new Intent();
+
         Log.i("StatsReceiver","Starting XCAStatsCollectorService");
         startServiceIntent.setComponent(new ComponentName("com.xosp.nilac.changelog", "com.xosp.nilac.changelog.XCAStatsCollector"));
         ComponentName c = context.startService(startServiceIntent);
