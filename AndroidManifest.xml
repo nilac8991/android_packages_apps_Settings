@@ -250,6 +250,12 @@
         <activity
              android:name=".xosp.XOSPEqualizerInfo" />
 
+        <receiver android:name=".xosp.StatsReceiver" android:enabled="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <!-- Wireless Controls -->
 
         <activity android:name="Settings$WirelessSettingsActivity"
