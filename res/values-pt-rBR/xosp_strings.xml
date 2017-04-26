@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2017 The Xperia Open Source Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- About phone screen, Device model -->
+    <string name="device_model">Modelo do Dispositivo</string>
+    <!-- About phone screen, Device name -->
+    <string name="device_name">Nome do Dispositivo</string>
+
+    <!-- About phone screen, XOSP version -->
+    <string name="mod_version">Versão XOSP</string>
+    <string name="mod_version_default">Desconhecido</string>
+
+    <!-- About phone screen, build date -->
+    <string name="build_date">Data do build</string>
+    <string name="build_date_default">2015-01-01-0000</string>
+
+    <!-- XOSPApps -->
+    <string name="xospapps_title">XOSPApps status</string>
+    <string name="xospapps_default_string">Não Instalados</string>
+
+    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+    <plurals name="show_dev_countdown_xosp">
+        <item quantity="one">Agora você está <xliff:g id="step_count">%1$d</xliff:g> longe de ativar as configurações de desenvolvimento.</item>
+        <item quantity="other">Agora você está <xliff:g id="step_count">%1$d</xliff:g> a poucos passos de ativar as configurações de desenvolvimento.</item>
+    </plurals>
+    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+    <string name="show_dev_on_xosp">Você ativou as configurações de desenvolvimento!</string>
+    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+    <string name="show_dev_already_xosp">Não há necessidade, você já ativou as configurações de desenvolvimento.</string>
+
+    <!-- Launch Dev Tools -->
+    <string name="development_tools_title">Ferramentas de desenvolvimento</string>
+
+
+    <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+    <string name="notification_importance_very_low">Nenhuma interrupção de tela cheia, espreitar, som ou vibração. Mostrar na parte inferior da lista de notificações. Ocultar da tela de bloqueio.</string>
+
+    <!-- Notification sound timeout -->
+    <string name="app_notification_sound_timeout_title">Tempo mínimo entre sons de notificação</string>
+    <string name="app_notification_sound_timeout_summary_template">Permitir sons ou vibração não mais do que uma vez por <xliff:g id="duration">%1$s</xliff:g></string>
+    <string name="app_notification_sound_timeout_value_none">Nenhuma restrição</string>
+    <string name="app_notification_sound_timeout_value_10_seconds">10 segundos</string>
+    <string name="app_notification_sound_timeout_value_30_seconds">30 segundos</string>
+    <string name="app_notification_sound_timeout_value_1_minute">1 minuto</string>
+    <string name="app_notification_sound_timeout_value_5_minutes">5 minutos</string>
+    <string name="app_notification_sound_timeout_value_15_minutes">10 minutos</string>
+    <string name="app_notification_sound_timeout_value_30_minutes">30 minutos</string>
+
+    <!-- MSIM SIM status -->
+    <string name="sim_card_status_title">SIM %d status</string>
+    <string name="sim_card_lock_settings_title">SIM %d Config. de bloqueio</string>
+    <string name="sim_card_summary_empty">SIM não inserido</string>
+    <string name="sim_mobile_network_settings_category_title">Config. dados móveis</string>
+    <string name="sim_mobile_network_settings_title">SIM %d Configurações</string>
+
+    <!-- Format string for fingerprint location message -->
+    <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Localize o sensor de impressão digital <xliff:g id="sensor_location">%1$s</xliff:g> do seu dispositivo.</string>
+
+    <!-- Fingerprint sensor locations -->
+    <string name="security_settings_fingerprint_sensor_location_back">Atrá</string>
+    <string name="security_settings_fingerprint_sensor_location_front">Frente</string>
+    <string name="security_settings_fingerprint_sensor_location_left">Lado esquerdo</string>
+    <string name="security_settings_fingerprint_sensor_location_right">Lado direito</string>
+
+    <!-- Wi-Fi region code -->
+    <string name="wifi_setting_countrycode_title">Wi\u2011Fi código da região</string>
+    <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+    <string name="wifi_setting_countrycode_summary">Especifique o código da região Wi\u2011Fi</string>
+    <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+    <string name="wifi_setting_countrycode_error">Ocorreu um problema ao definir o código da região.</string>
+
+    <!-- Zen mode allowed event setting summary items -->
+    <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+    <string name="zen_mode_summary_reminders">lembretes</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_events">eventos</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_all_callers">todas chamadas</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_selected_callers">chamadas selecionadas</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_repeat_callers">chamadas repitidas</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_all_messages">todas mensagens</string>
+    <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+    <string name="zen_mode_summary_selected_messages">mensagens selecionadas</string>
+
+    <!-- NFC PreferenceCategory title -->
+    <string name="nfc_title_category">NFC</string>
+
+    <!-- XOSP extra settings -->
+    <string name="xosp_settings_header">Mundo XOSP</string>
+    <string name="xosp_settings_main_title">Configurações XOSP</string>
+    <string name="xosp_setting_equalizer_title">Equalizador</string>
+    <string name="xosp_setting_changelog_title">ChangeLOG</string>
+    <string name="xosp_settings_statusbar_cat">Personnalizações de statusbar</string>
+    <string name="xosp_settings_buttons_cat">Personalizações dos botões</string>
+    <string name="xosp_settings_misc_cat">Mais personalizações</string>
+    <string name="xosp_settings_lockscreen_cat">Personalizações da lockscreen</string>
+    <string name="xosp_settings_blur_cat">Personalizações Blur</string>
+    <string name="notification_drawer_title">Personalizações da drawer de notificações</string>
+    <string name="header_cat">Header na drawer de notificações</string>
+
+    <!-- XOSP Misc category -->
+    <string name="xosp_misc_screen_title">Tela</string>
+    
+    <!-- XOSP External activities -->
+    <string name="xosp_equalizer_activity">Equalizador</string>
+    
+    <!-- About XOSP -->
+    <string name="about_xosp">Sobre a XOSP</string>
+    <string name="about_xosp_summary">Tudo sobre nós</string>
+    <string name="xosp_donate">Doar para o Desenvolvimento</string>
+    <string name="xosp_donate_summary">Gosta dessa rom? Faça uma pequena doação!</string>
+    <string name="app_name">XOSP</string>
+    <string name="github_nilac">https://github.com/nilac8991</string>
+    <string name="xosp_links">XOSP Links</string>
+    <string name="xosp_source_title">XOSP Sources</string>
+    <string name="xosp_source_summary">XOSP sources no Github</string>
+    <string name="xosp_google_plus_title">Google+</string>
+    <string name="xosp_google_plus_summary">Junte-se à comunidade no Google+</string>
+    <string name="xosp_facebook_title">Facebook</string>
+    <string name="xosp_facebook_summary">Siga-nos também na nossa página oficial no FB</string>
+    <string name="xosp_downloads_site_title">XOSP Centro de Downloads</string>
+    <string name="xosp_downloads_site_summary">Mantenha-se atualizado com as versões mais recentes do XOSP e XOSPApps!</string>
+    <string name="xosp_jenkins_site_title">XOSP Jenkins</string>
+    <string name="xosp_jenkins_site_summary">Nosso servidor Jenkins!</string>
+    <string name="xosp_site_title">XOSP Site oficial</string>
+    <string name="xosp_site_summary">Visite nosso site!</string>
+    <string name="xosp_devices_source_title">XOSP Sources oficiais de dispositivos</string>
+    <string name="xosp_devices_source_summary">XOSP sources dos dispositivos oficiais no Github</string>
+    <string name="xosp_translations_title">XOSP Crowdin</string>
+    <string name="xosp_translations_summary">Contribuir com a XOSP para ter seu idioma!</string>
+    <string name="xosp_teespring_title">XOSP Teespring Store</string>
+    <string name="xosp_teespring_summary">Visite nossa loja no Teespring para nossa mercadoria impressionante!</string>
+    <string name="xosp_telegram_group_title">XOSP Grupo da comunidade no Telegram</string>
+    <string name="xosp_telegram_group_summary">Junte-se a nossa comunidade no grupo do Telegram</string>
+    <string name="xosp_telegram_channel_title">XOSP Canal no Telegram</string>
+    <string name="xosp_telegram_channel_summary">Receba as últimas notícias do XOSP seguindo nosso canal Telegram</string>
+    <string name="xosp_about_intro_title">O que é XOSP?</string>
+    <string name="xosp_about_intro_summary">XOSP é um firmware customizada baseado em CodeAuroraSources (CAF) destinado a uma ampla gama de telefones Android.\n O nome representa o Xperia Open Source Project e o projeto foi inicialmente criado por nilac para o Galaxy S + (seu antigo dispositivo) anos atrás, quando naquela época a ROM era chamada S + Reborn.\n A visão era criar uma ROM livre que incluiu aplicativos específicos da Sony Xperia e vários ajustes que os usuários esperariam de uma ROM personalizada.</string>
+    
+    <!-- XOSP Equalizer Infos -->
+    <string name="equalizer_question_one_title">Por que não mais ViPER?</string>
+    <string name="equalizer_question_one_summary">Eu queria algo diferente desta vez para a ROM, mesmo se eu sei ViPER é o melhor de todos.</string>
+    <string name="equalizer_question_two_title">Como posso usá-lo?</string>
+    <string name="equalizer_question_two_summary">Você pode usar o Equalizador nos aplicativos que suportam Equalizadores externos, por exemplo, Música e Spotify são suportados, mas também outros com certeza.</string>
+    <string name="equalizer_question_three_title">Posso usar o ViPER ao mesmo tempo?</string>
+    <string name="equalizer_question_three_summary">Claro que você pode! Você pode usar Viper e XOSP Equalizer ao mesmo tempo para uma experiência de áudio ainda melhor!</string>
+    <string name="equalizer_question_four_title">Problemas com o perfil personalizado?</string>
+    <string name="equalizer_question_four_summary">Sim, eu sei, é um problema visual no aplicativo, mas vou tentar corrigi-lo o mais rapidamente possível.</string>
+    <string name="equalizer_question_five_title">Quem disse tudo isso?</string>
+    <string name="equalizer_question_five_summary">Eu, o desenvolvedor (nilac)</string>    
+
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Evitar wake-up acidental</string>
+    <string name="proximity_wake_summary">Verifique o sensor de proximidade antes de acordar a tela</string>
+
+    <!-- Buttons -->
+    <string name="buttons_pref_title">Botões</string>
+    <string name="buttons_pref_summary">Personalizar as teclas e os botões do dispositivo</string>
+    <string name="enable_navigation_bar_title">Ativar software keys</string>
+    <string name="enable_navigation_bar_summary">Ativar barra de navegação na tela</string>
+    <string name="swap_navigation_keys_title">Trocar Botões</string>
+    <string name="swap_navigation_keys_summary">Trocar botões voltar e recentes</string>
+    <string name="swap_slider_order_title">Trocar slider</string>
+    <string name="swap_slider_order_summary">Troque a ordem dos modos do controle slider de alerta</string>
+    <string name="hardware_brightness_keys_title">Luz de fundo</string>
+    <string name="hardware_brightness_keys_summary">Ativar luz de fundo nas teclas de navegação</string>
+    <string name="home_key_title">Botão Home</string>
+    <string name="back_key_title">Botão voltar</string>
+    <string name="menu_key_title">Botão Menu</string>
+    <string name="assist_key_title">Botão assistent</string>
+    <string name="app_switch_key_title">Botão recentes</string>
+    <string name="camera_key_title">Botão camera</string>
+    <string name="short_press_title">Ação ao clicar</string>
+    <string name="long_press_title">Ação ao pressionar</string>
+    <string name="double_tap_title">Ação de toque duplo</string>
+    <string name="action_nothing">Nenhuma ação</string>
+    <string name="action_menu">Abrir/fechar menu</string>
+    <string name="action_app_switch">Recentes</string>
+    <string name="action_search">Pesquisa de assistant</string>
+    <string name="action_voice_search">Pesquisa de voz</string>
+    <string name="action_in_app_search">Pesquisa App</string>
+    <string name="action_launch_camera">Abrir camera</string>
+    <string name="action_last_app">Abrir último app</string>
+    <string name="action_splitscreen">Tela dividida</string>
+
+    <string name="volbtn_music_controls_title">Controle playback</string>
+    <string name="volbtn_music_controls_summary">Quando a tela estiver desativada, pressionando-se longamente as teclas de volume buscará faixas de música</string>
+
+    <!-- XOSP NavBar Switch -->
+    <string name ="xosp_navbar_switch_title">XOSP NavBar Switch </string>
+    <string name ="xosp_navbar_switch_summary">Mude os ícones da NavBar pelos icones MarshMallow</string>
+
+    <!-- Double tap to sleep on lockscreen -->
+    <string name="double_tap_sleep_anywhere_title">DT2S na tela de bloqueio</string>
+    <string name="double_tap_sleep_anywhere_summary">Toque duas vezes na tela de bloqueio para dormir</string>
+
+    <!-- Battery customizations -->
+    <string name="status_bar_battery_style_category">Bateria</string>
+    <string name="status_bar_battery_style_title">Estilo da bateria</string>
+    <string name="status_bar_battery_style_text">Protótipo de bateria Xperia</string>
+    <string name="status_bar_battery_style_hidden">Ocultar</string>
+
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Tráfego de rede</string>
+    <string name="show_network_traffic_state">Monitor de tráfego de rede na statusbar</string>
+    <string name="show_network_traffic_unit">Unid de exibição</string>
+    <string name="show_network_traffic_frequency">Intervalo de atualização</string>
+    <string name="show_network_traffic_disable">Desativado</string>
+    <string name="show_network_traffic_up">Saída</string>
+    <string name="show_network_traffic_down">Entrada</string>
+    <string name="show_network_traffic_all">Saída e entrada</string>
+    <string name="show_network_traffic_bit">Bits por segundo</string>
+    <string name="show_network_traffic_byte">Bytes por segundo</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide_title">Ocultar automaticamente</string>
+    <string name="network_traffic_autohide_summary">Ocultar o monitor de tráfego quando não há atividade</string>
+    <string name="network_traffic_autohide_threshold">Limite de inatividade</string>
+
+    <!-- Double Tap Navbar to Sleep -->
+    <string name="double_tap_sleep_nav_bar_title">Toque duplo para dormir</string>
+    <string name="double_tap_sleep_nav_bar_summary">Toque duas vezes na barra de navegação para bloquear a tela</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Slecionador de cores</string>
+    <string name="press_color_to_apply">Pressione a cor abaixo para aplicar</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Padrão</string>
+
+    <!-- XOSP Blur personalizations -->
+    <string name="blurred_status_bar_expanded_enabled_pref">Blur na statusbar</string>
+    <string name="blurred_status_bar_expanded_enabled_pref_summary">Desfocar o plano de fundo quando você puxar para baixo a barra de status</string>
+    <string name="translucent_notifications_pref">Notificações transparentes</string>
+    <string name="translucent_notifications_pref_summary">Definir o fundo das notificações transparentes</string>
+    <string name="translucent_quick_settings_pref">StatusBar expandida embaçada</string>
+    <string name="translucent_quick_settings_pref_summary">Desfocar o plano de fundo da barra de status expandida</string>
+    <string name="transluency_level_universal">Nível de transparência</string>
+    <string name="blurred_recent_app_enabled_pref">Desfocar Apps recentes</string>
+    <string name="blurred_recent_app_enabled_pref_summary">Desfocar o fundo da atividade de Aplicativos recentes</string>
+
+    <string name="blur_light_color">Filtro de cor de imagem clara</string>
+    <string name="blur_dark_color">Filtro de cor de imagem escura</string>
+    <string name="blur_mixed_color">Filtro de cores de imagem mista</string>
+
+
+    <string name="blur_notice">Sobre Blur...</string>
+    <string name="blur_notice_summary">As personlizações de desfoque são desativadas durante a visualização do protetor de teclado! Apenas as notificações transparentes estão ativadas!</string>
+    <string name="blur_colors_notice">O que essas cores estão fazendo?</string>
+    <string name="blur_colors_notice_summary">Estas cores são aquelas que matizam o BlurBackground. Em vez do cinzento normal, você pode agora escolher as cores da maneira que você gosta.\n Há três filtros de cor: um usado para fundos claros, um usado para fundos escuros e outro usado para fundos claros/escuros.\n Então, como estas cores estão funcionando?\n Simples, como dizem os títulos, o filtro Light será usado para fundos mais claros, filtro escuro para fundos escuros e o filtro misto será usado para fundos não muito escuros mas nem muito claros.\n Essas cores são usadas para BlurBackgrounds: StatusBar e RecentsApps.</string>
+
+
+    <string name="blur_expstatus_cat">StatusBar Expandida</string>
+    <string name="blur_notifications_cat">Notificações</string>
+    <string name="blur_qs_cat">Quick Settings</string>
+    <string name="blur_recents_cat">Apps Recentes</string> 
+    <string name="blur_colors_cat">Cores de filtros Blur</string>
+    <string name="blur_notices_cat">Avisos</string>
+
+    <string name="blurred_scale">Escala Blur</string>
+    <string name="blurred_scale_summary">Qualidade de imagens blur</string>
+
+    <string name="blurred_radius">Curvas Blur</string>
+    <string name="blurred_radius_summary">Quantidade de blur</string>
+
+    <string name="blur_cat_notice">Avisos</string>
+    <string name="blur_cat_notice_summary">As personlizações de desfoque são desativadas durante a visualização do protetor de teclado! Apenas as notificações transparentes estão ativadas!</string>
+
+</resources>
