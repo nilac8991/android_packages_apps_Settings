@@ -19,6 +19,22 @@
         android:title="@string/display_settings"
         settings:keywords="@string/keywords_display">
 
+    <PreferenceCategory
+        android:key="leds"
+        android:title="@string/led_category" >
+
+        <PreferenceScreen
+            android:key="notification_light"
+            android:title="@string/notification_light_title"
+            android:fragment="com.android.settings.xosp.notificationlight.NotificationLightSettings" />
+
+        <PreferenceScreen
+            android:key="battery_light"
+            android:title="@string/battery_light_title"
+            android:fragment="com.android.settings.xosp.notificationlight.BatteryLightSettings" />
+
+    </PreferenceCategory>
+
         <PreferenceScreen
                 android:key="brightness"
                 android:title="@string/brightness"
