@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
-import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +31,7 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.xosp.preferences.SystemSettingSwitchPreference;
 
 public class BatteryLightSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -47,8 +47,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
     private ApplicationLightPreference mLowColorPref;
     private ApplicationLightPreference mMediumColorPref;
     private ApplicationLightPreference mFullColorPref;
-    private SwitchPreference mLightEnabledPref;
-    private SwitchPreference mPulseEnabledPref;
+    private SystemSettingSwitchPreference mLightEnabledPref;
+    private SystemSettingSwitchPreference mPulseEnabledPref;
 
     private static final int MENU_RESET = Menu.FIRST;
 
@@ -59,8 +59,8 @@ public class BatteryLightSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
-        mLightEnabledPref = (SwitchPreference) prefSet.findPreference(LIGHT_ENABLED_PREF);
-        mPulseEnabledPref = (SwitchPreference) prefSet.findPreference(PULSE_ENABLED_PREF);
+        mLightEnabledPref = (SystemSettingSwitchPreference) prefSet.findPreference(LIGHT_ENABLED_PREF);
+        mPulseEnabledPref = (SystemSettingSwitchPreference) prefSet.findPreference(PULSE_ENABLED_PREF);
 
         // Does the Device support changing battery LED colors?
         if (getResources().getBoolean(com.android.internal.R.bool.config_multiColorBatteryLed)) {
