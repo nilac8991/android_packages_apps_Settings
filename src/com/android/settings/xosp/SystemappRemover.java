@@ -87,58 +87,58 @@ public class SystemappRemover extends Fragment {
         final ArrayList<String> safetyList = new ArrayList<String>();
         
         //app
-        safetyList.add("Bluetooth.apk");
-        safetyList.add("BluetoothMidiService.apk");
+        safetyList.add("Bluetooth");
+        safetyList.add("BluetoothMidiService");
         safetyList.add("Camera2");
-        safetyList.add("CaptivePortalLogin.apk");
-        safetyList.add("CertInstaller.apk");
-        safetyList.add("Development.apk");
-        safetyList.add("EasterEgg.apk");
-        safetyList.add("Exchange2.apk");
-        safetyList.add("ExtShared.apk");
-        safetyList.add("KeyChain.apk");
-        safetyList.add("messaging.apk");
-        safetyList.add("NfcNci.apk");
-        safetyList.add("PacProcessor.apk");
-        safetyList.add("PrintSpooler.apk");
-        safetyList.add("Stk.apk");
-        safetyList.add("WAPPushManager.apk");
-        safetyList.add("webview.apk");
-        safetyList.add("XCA.apk");
-        safetyList.add("XperiaServices.apk");
-        safetyList.add("XOSPDelta.apk");
-        safetyList.add("BackupRestoreConfirmation.apk");
+        safetyList.add("CaptivePortalLogin");
+        safetyList.add("CertInstaller");
+        safetyList.add("Development");
+        safetyList.add("EasterEgg");
+        safetyList.add("Exchange2");
+        safetyList.add("ExtShared");
+        safetyList.add("KeyChain");
+        safetyList.add("messaging");
+        safetyList.add("NfcNci");
+        safetyList.add("PacProcessor");
+        safetyList.add("PrintSpooler");
+        safetyList.add("Stk");
+        safetyList.add("WAPPushManager");
+        safetyList.add("webview");
+        safetyList.add("XCA");
+        safetyList.add("XperiaServices");
+        safetyList.add("XOSPDelta");
+        safetyList.add("BackupRestoreConfirmation");
 
         //priv-app
-        safetyList.add("CalendarProvider.apk");
-        safetyList.add("CallLogBackup.apk");
-        safetyList.add("CarrierConfig.apk");
-        safetyList.add("CellBroadcastReceiver.apk");
-        safetyList.add("Contacts.apk");
-        safetyList.add("ContactsProvider.apk");
-        safetyList.add("DefaultContainerService.apk");
-        safetyList.add("DocumentsUI.apk");
-        safetyList.add("Dialer.apk");
-        safetyList.add("DownloadProvider.apk");
-        safetyList.add("EmergencyInfo.apk");
-        safetyList.add("ExternalStorageProvider.apk");
-        safetyList.add("FusedLocation.apk");
-        safetyList.add("InputDevices.apk");
-        safetyList.add("ituxd.apk");
-        safetyList.add("ManagedProvisioning.apk");
-        safetyList.add("MediaProvider.apk");
-        safetyList.add("MmsService.apk");
-        safetyList.add("MtpDocumentsProvider.apk");
-        safetyList.add("PackageInstaller.apk");
-        safetyList.add("Settings.apk");
-        safetyList.add("SettingsProvider.apk");
-        safetyList.add("StorageManager.apk");
-        safetyList.add("SystemUI.apk");
-        safetyList.add("Tag.apk");
-        safetyList.add("Telecom.apk");
-        safetyList.add("TelephonyProvider.apk");
-        safetyList.add("TeleService.apk");
-        safetyList.add("WallpaperCropper.apk");
+        safetyList.add("CalendarProvider");
+        safetyList.add("CallLogBackup");
+        safetyList.add("CarrierConfig");
+        safetyList.add("CellBroadcastReceiver");
+        safetyList.add("Contacts");
+        safetyList.add("ContactsProvider");
+        safetyList.add("DefaultContainerService");
+        safetyList.add("DocumentsUI");
+        safetyList.add("Dialer");
+        safetyList.add("DownloadProvider");
+        safetyList.add("EmergencyInfo");
+        safetyList.add("ExternalStorageProvider");
+        safetyList.add("FusedLocation");
+        safetyList.add("InputDevices");
+        safetyList.add("ituxd");
+        safetyList.add("ManagedProvisioning");
+        safetyList.add("MediaProvider");
+        safetyList.add("MmsService");
+        safetyList.add("MtpDocumentsProvider");
+        safetyList.add("PackageInstaller");
+        safetyList.add("Settings");
+        safetyList.add("SettingsProvider");
+        safetyList.add("StorageManager");
+        safetyList.add("SystemUI");
+        safetyList.add("Tag");
+        safetyList.add("Telecom");
+        safetyList.add("TelephonyProvider");
+        safetyList.add("TeleService");
+        safetyList.add("WallpaperCropper");
 
        // create arraylist from /system/app and /system/priv-app content
         File system = new File(systemPath);
@@ -469,8 +469,10 @@ private String[] combine(String[] a, String[] b) {
                 String basePath = systemPath;
                  File app = new File(systemPath);
 
-                if( ! app.exists() )
+                if(!app.exists()){
                     basePath = systemPrivPath;
+		    app = new File(systemPrivPath);
+                }
 
                 try {
                     dos.writeBytes("\n" + "rm -rf '" + basePath + "*" + appName + "'\n");
@@ -496,7 +498,7 @@ private String[] combine(String[] a, String[] b) {
             progress.dismiss();
 
             //Reboot
-            Toast toast = Toast.makeText(getView().getContext(), getResources().getString(
+            /*Toast toast = Toast.makeText(getView().getContext(), getResources().getString(
                 R.string.system_app_remover_post_toast_reboot),
                 Toast.LENGTH_LONG);
             toast.show();
@@ -504,7 +506,7 @@ private String[] combine(String[] a, String[] b) {
                 public void run(){
                     pm.reboot("REBOOT");
                 }
-            }, 1000);
+            }, 1000);*/
         }
     }
 }
