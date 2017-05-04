@@ -30,10 +30,13 @@ import java.util.Scanner;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.PowerManager;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,75 +85,64 @@ public class SystemappRemover extends Fragment {
 
         // create arraylist of apps not to be removed
         final ArrayList<String> safetyList = new ArrayList<String>();
+        
+        //app
+        safetyList.add("Bluetooth.apk");
+        safetyList.add("BluetoothMidiService.apk");
+        safetyList.add("Camera2");
+        safetyList.add("CaptivePortalLogin.apk");
+        safetyList.add("CertInstaller.apk");
+        safetyList.add("Development.apk");
+        safetyList.add("EasterEgg.apk");
+        safetyList.add("Exchange2.apk");
+        safetyList.add("ExtShared.apk");
+        safetyList.add("KeyChain.apk");
+        safetyList.add("messaging.apk");
+        safetyList.add("NfcNci.apk");
+        safetyList.add("PacProcessor.apk");
+        safetyList.add("PrintSpooler.apk");
+        safetyList.add("Stk.apk");
+        safetyList.add("WAPPushManager.apk");
+        safetyList.add("webview.apk");
+        safetyList.add("XCA.apk");
+        safetyList.add("XperiaServices.apk");
+        safetyList.add("XOSPDelta.apk");
         safetyList.add("BackupRestoreConfirmation.apk");
+
+        //priv-app
         safetyList.add("CalendarProvider.apk");
         safetyList.add("CallLogBackup.apk");
         safetyList.add("CarrierConfig.apk");
         safetyList.add("CellBroadcastReceiver.apk");
-        safetyList.add("CMActions.apk");
-        safetyList.add("CMSettingsProvider.apk");
-        safetyList.add("Contacts.apk");
         safetyList.add("Contacts.apk");
         safetyList.add("ContactsProvider.apk");
         safetyList.add("DefaultContainerService.apk");
+        safetyList.add("DocumentsUI.apk");
         safetyList.add("Dialer.apk");
         safetyList.add("DownloadProvider.apk");
+        safetyList.add("EmergencyInfo.apk");
         safetyList.add("ExternalStorageProvider.apk");
         safetyList.add("FusedLocation.apk");
         safetyList.add("InputDevices.apk");
         safetyList.add("ituxd.apk");
         safetyList.add("ManagedProvisioning.apk");
-        safetyList.add("MaterialDarkV4A.apk");
         safetyList.add("MediaProvider.apk");
         safetyList.add("MmsService.apk");
-        safetyList.add("OneTimeInitializer.apk");
+        safetyList.add("MtpDocumentsProvider.apk");
         safetyList.add("PackageInstaller.apk");
-        safetyList.add("ProxyHandler.apk");
-        safetyList.add("Screencast.apk");
         safetyList.add("Settings.apk");
         safetyList.add("SettingsProvider.apk");
-        safetyList.add("SharedStorageBackup.apk");
-        safetyList.add("Shell.apk");
-        safetyList.add("StatementService.apk");
+        safetyList.add("StorageManager.apk");
         safetyList.add("SystemUI.apk");
         safetyList.add("Tag.apk");
         safetyList.add("Telecom.apk");
         safetyList.add("TelephonyProvider.apk");
         safetyList.add("TeleService.apk");
-        safetyList.add("ThemeChooser.apk");
-        safetyList.add("ThemeProvider.apk");
-        safetyList.add("VpnDialogs.apk");
         safetyList.add("WallpaperCropper.apk");
-        safetyList.add("Bluetooth.apk");
-        safetyList.add("BluetoothMidiService.apk");
-        safetyList.add("Browser.apk");
-        safetyList.add("CaptivePortalLogin.apk");
-        safetyList.add("CertInstaller.apk");
-        safetyList.add("CMFileManager.apk");
-        safetyList.add("Development.apk");
-        safetyList.add("DocumentsUI.apk");
-        safetyList.add("DownloadProviderUi.apk");
-        safetyList.add("Email.apk");
-        safetyList.add("ExactCalculator.apk");
-        safetyList.add("Exchange2.apk");
-        safetyList.add("KeyChain.apk");
-        safetyList.add("LockClock.apk");
-        safetyList.add("messaging.apk");
-        safetyList.add("NfcNci.apk");
-        safetyList.add("PacProcessor.apk");
-        safetyList.add("PicoTts.apk");
-        safetyList.add("PrintSpooler.apk");
-        safetyList.add("Profiles.apk");
-        safetyList.add("Provision.apk");
-        safetyList.add("Stk.apk");
-        safetyList.add("telresources.apk");
-        safetyList.add("UserDictionaryProvider.apk");
-        safetyList.add("WAPPushManager.apk");
-        safetyList.add("webview.apk");
 
        // create arraylist from /system/app and /system/priv-app content
         File system = new File(systemPath);
-	File systemPriv = new File(systemPrivPath);
+	    File systemPriv = new File(systemPrivPath);
         String[] sysappArray = combine(system.list(), systemPriv.list());
         mSysApp = new ArrayList<String>(
                 Arrays.asList(sysappArray));
@@ -228,7 +220,7 @@ public class SystemappRemover extends Fragment {
             alert.setMessage(R.string.sizer_message_startup)
                     .setTitle(R.string.caution)
                     .setCancelable(true)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
                                         int id) {
@@ -239,7 +231,7 @@ public class SystemappRemover extends Fragment {
         // delete dialog
         } else if (id == DELETE_DIALOG) {
             alert.setMessage(R.string.sizer_message_delete)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
                                         int id) {
@@ -261,7 +253,7 @@ public class SystemappRemover extends Fragment {
                             });
         } else if (id == DELETE_MULTIPLE_DIALOG) {
             alert.setMessage(R.string.sizer_message_delete)
-                    .setPositiveButton(R.string.ok,
+                    .setPositiveButton("OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
                                         int id) {
@@ -450,6 +442,8 @@ private String[] combine(String[] a, String[] b) {
     public class Deleter extends AsyncTask<String, String, Void> {
 
         private ProgressDialog progress;
+        private Handler handler = new Handler();
+        private PowerManager pm = (PowerManager) getView().getContext().getSystemService(Context.POWER_SERVICE);
 
         @Override
         protected void onPreExecute() {
@@ -500,6 +494,17 @@ private String[] combine(String[] a, String[] b) {
                 e.printStackTrace();
             }
             progress.dismiss();
+
+            //Reboot
+            Toast toast = Toast.makeText(getView().getContext(), getResources().getString(
+                R.string.system_app_remover_post_toast_reboot),
+                Toast.LENGTH_LONG);
+            toast.show();
+            handler.postDelayed(new Runnable() {
+                public void run(){
+                    pm.reboot("REBOOT");
+                }
+            }, 1000);
         }
     }
 }

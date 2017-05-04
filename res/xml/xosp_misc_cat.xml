@@ -18,6 +18,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     settings:keywords="@string/keywords_display">
 
+    <Preference
+        style="?android:preferenceInformationStyle"
+        android:title="@string/system_app_remover_warning_title"
+        android:summary="@string/system_app_remover_warning_summary"
+        android:selectable="false" />
+
     <!-- SystemApp Remover -->
     <PreferenceScreen
         android:id="@+id/system_app_remover"
