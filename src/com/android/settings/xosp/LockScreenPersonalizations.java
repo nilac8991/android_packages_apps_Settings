@@ -95,7 +95,7 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
 
     private SwitchPreference mDT2SAnywherePreference;
-    private SeekBarPreference mBlurRadius;
+    private CustomSeekBarPreference mBlurRadius;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         mDT2SAnywherePreference.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, 0) == 1));
 
-        mBlurRadius = (SeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
+        mBlurRadius = (CustomSeekBarPreference) findPreference(KEY_LOCKSCREEN_BLUR_RADIUS);
         mBlurRadius.setValue(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
         mBlurRadius.setOnPreferenceChangeListener(this);
