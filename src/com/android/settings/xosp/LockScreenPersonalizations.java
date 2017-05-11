@@ -93,9 +93,11 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
 
     private static final String KEY_DTA_LOCK = "double_tap_sleep_anywhere";
     private static final String KEY_LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
+    private static final String KEY_LOCKSCREEN_BLUR = "lockscreen_see_through";
 
     private SwitchPreference mDT2SAnywherePreference;
     private CustomSeekBarPreference mBlurRadius;
+    private SwitchPreference mBlurLockscreen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -113,6 +115,10 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
         mBlurRadius.setValue(Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_BLUR_RADIUS, 14));
         mBlurRadius.setOnPreferenceChangeListener(this);
+        
+        mBlurLockscreen = (SwitchPreference) findPreference(KEY_LOCKSCREEN_BLUR);
+        mBlurLockscreen.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_SEE_THROUGH, 0) == 1));
     }
 
     @Override
@@ -138,6 +144,12 @@ public class LockScreenPersonalizations extends SettingsPreferenceFragment imple
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                 Settings.System.DOUBLE_TAP_SLEEP_ANYWHERE, enabled ? 1:0);
+            return true;
+        }
+        if (preference == mBlurLockscreen) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_SEE_THROUGH, enabled ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);
